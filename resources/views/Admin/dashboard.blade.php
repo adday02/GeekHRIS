@@ -59,12 +59,12 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                  <li><a href="{{URL('/')}}"><i class="fa fa-tachometer "></i> Dashboard </a></li>
+                  <li><a href="{{URL('/dashboard')}}"><i class="fa fa-tachometer "></i> Dashboard </a></li>
                   <li><a><i class="fa fa-users"></i> User <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Pegawai</a></li>
-                      <li><a href="#">Rekruitment</a></li>
-                      <li><a href="#">Magang</a></li>
+                      <li><a href="{{URL('/pegawai')}}">Pegawai</a></li>
+                      <li><a href="{{URL('/recruitment')}}">Rekruitment</a></li>
+                      <li><a href="{{URL('/magang')}}">Magang</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-money"></i> Gaji <span class="fa fa-chevron-down"></span></a>
@@ -89,7 +89,7 @@
                       <li><a href="#">Jadwal Cuti</a></li>
                     </ul>
                   </li>
-                  </ul>
+                </ul>
               </div>
 
             </div>

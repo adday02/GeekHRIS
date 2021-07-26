@@ -16,3 +16,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/dashboard', function () {
+    return view('Admin.dashboard');
+});
+Route::get('/pegawai', function () {
+    return view('Admin.pegawai');
+});
+Route::get('/recruitment', function () {
+    return view('Admin.recruitment');
+});
+Route::get('/magang', function () {
+    return view('Admin.magang');
+});
