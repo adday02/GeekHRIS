@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminPegawaiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,15 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::group(['prefix'=> 'admin'], function()
+{
+    Route::resource('pegawai',AdminPegawaiController::class);
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/dashboard', function () {
     return view('Admin.dashboard');
-});
-Route::get('/pegawai', function () {
-    return view('Admin.pegawai');
 });
 Route::get('/recruitment', function () {
     return view('Admin.recruitment');

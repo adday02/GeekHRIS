@@ -20,6 +20,7 @@ class User extends Authenticatable
     protected $primaryKey = 'username';
     protected $fillable = [ 'username', 'password', 'nama', 'email', 'jabatan', 'tanggal_lahir', 'jenis_kelamin', 'alamat', 'agama', 'no_hp', 'foto', 'status' ];
     public $timestamps = false;
+    protected $keyType = 'string';
 
     /**
      * The attributes that should be hidden for arrays.

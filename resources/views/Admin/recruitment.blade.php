@@ -1,5 +1,5 @@
 @extends('admin.template')
-@section('title','Pegawai' )
+@section('title','Reqruitment' )
 @section('content')
     <!-- page content -->
     <div class="right_col" role="main">
@@ -16,7 +16,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                <h2>Data Pegawai</h2>
+                <h2>Data Reqruitment</h2>
                 <button class="btn btn-success pull-right"><i class="fa fa-plus"></i> Tambah Pegawai</button>
                 <div class="clearfix"></div>
                 </div>
