@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Dashboard</title>
+    <title>@yield('title')</title>
 
     <!-- Bootstrap -->
     <link href="../Admin/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -210,272 +210,7 @@
           </div>
         </div>
         <!-- /top navigation -->
-        <!-- page content -->
-        <div class="right_col" role="main">
-          <!-- top tiles -->
-          <div class="row tile_count">
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-users"></i> Pegawai</span>
-              <div class="count">{{$user_pegawai}}</div>
-              <span class="count_bottom">Orang</span>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i> Recruitment</span>
-              <div class="count">{{$user_recruitment}}</div>
-              <span class="count_bottom"><i class="green"></i>Orang</span>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i> Magang</span>
-              <div class="count">{{$user_magang}}</div>
-              <span class="count_bottom"><i class="green"></i>Orang</span>
-            </div>
-            
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-money"></i> Sudah Terima Gaji</span>
-              <div class="count">15</div>
-              <span class="count_bottom"><i class="green">75% </i> Pegawai</span>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-money"></i> Belum Terima Gaji</span>
-              <div class="count">5</div>
-              <span class="count_bottom"><i class="green">25% </i> Pegawai</span>
-            </div>
-          </div>
-          <!-- /top tiles -->
-
-          <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-              <div class="dashboard_graph">
-                <div class="row x_title">
-                  <div class="col-md-6">
-                    <h3>Human Resources Information System</h3>
-                  </div>
-                </div>
-
-                <div class="col-md-9 col-sm-9 col-xs-12">
-                <canvas id="bar-chart" width="700" height="250"></canvas>
-                </div>
-                <!-- <div class="col-md-3 col-sm-3 col-xs-12 bg-white">
-                  <div class="x_title">
-                    <h2>Data Absensi</h2>
-                    <div class="clearfix"></div>
-                  </div>
-
-                  <div class="col-md-12 col-sm-12 col-xs-6">
-                    <div>
-                      <p>Hadir <i class="green"> 75% </i></p>
-                      <div class="">
-                        <div class="progress progress_sm" style="width: 76%;">
-                          <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="75"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                      <p>Sakit<i class="green"> 5% </i></p>
-                      <div class="">
-                        <div class="progress progress_sm" style="width: 76%;">
-                          <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="5"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-12 col-sm-12 col-xs-6">
-                    <div>
-                      <p>Izin<i class="green"> 20% </i></p>
-                      <div class="">
-                        <div class="progress progress_sm" style="width: 76%;">
-                          <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="20"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                      <p>Tanpa Keterangan<i class="green">0% </i></p>
-                      <div class="">
-                        <div class="progress progress_sm" style="width: 76%;">
-                          <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="0"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div> -->
-
-                <div class="clearfix"></div>
-              </div>
-            </div>
-          </div>
-          <br />
-          <div class="row">
-            <div class="col-md-4 col-sm-4 col-xs-12">
-              <div class="x_panel tile fixed_height_320">
-                <div class="x_title">
-                  <h2>Daftar Hadir Pada {{ date("d F Y")}}</h2>
-                  <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Settings 1</a>
-                        </li>
-                        <li><a href="#">Settings 2</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                  </ul>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                  <div class="widget_summary">
-                    <div class="w_left w_25">
-                      <span>Hadir</span>
-                    </div>
-                    <div class="w_center w_55">
-                      <div class="progress">
-                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
-                          <span class="sr-only">60% Complete</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="w_right w_20">
-                      <span></span>
-                    </div>
-                    <div class="clearfix"></div>
-                  </div>
-
-                  <div class="widget_summary">
-                    <div class="w_left w_25">
-                      <span>Sakit</span>
-                    </div>
-                    <div class="w_center w_55">
-                      <div class="progress">
-                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 3%;">
-                          <span class="sr-only">60% Complete</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="w_right w_20">
-                      <span></span>
-                    </div>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="widget_summary">
-                    <div class="w_left w_25">
-                      <span>Izin</span>
-                    </div>
-                    <div class="w_center w_55">
-                      <div class="progress">
-                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
-                          <span class="sr-only">60% Complete</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="w_right w_20">
-                      <span></span>
-                    </div>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="widget_summary">
-                    <div class="w_left w_25">
-                      <span>Tanpa Ket</span>
-                    </div>
-                    <div class="w_center w_55">
-                      <div class="progress">
-                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 2%;">
-                          <span class="sr-only">60% Complete</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="w_right w_20">
-                      <span></span>
-                    </div>
-                    <div class="clearfix"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <?php
-              $tgl=date('m');
-              if($tgl==1)
-              {
-                $tgl="Januari";
-              }
-              else if($tgl==2)
-              {
-                $tgl="Februari";
-              }
-              else if($tgl==3)
-              {
-                $tgl="Maret";
-              }
-              else if($tgl==4)
-              {
-                $tgl="April";
-              }
-              else if($tgl==5)
-              {
-                $tgl="Mei";
-              }
-              else if($tgl==6)
-              {
-                $tgl="Juni";
-              }
-              else if($tgl==7)
-              {
-                $tgl="Juli";
-              }
-              else if($tgl==8)
-              {
-                $tgl="Agustus";
-              }
-              else if($tgl==9)
-              {
-                $tgl="September";
-              }
-              else if($tgl==10)
-              {
-                $tgl="Oktober";
-              }
-              else if($tgl==11)
-              {
-                $tgl="November";
-              }
-              else if($tgl==12)
-              {
-                $tgl="Desember";
-              }
-              
-            ?>
-            <div class="col-md-4 col-sm-4 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Data Gaji Pada bulan {{$tgl}}</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    <canvas width="1" height="1" id="inicanvas"></canvas>
-                  </div>
-                </div>
-              </div>
-          </div>
-        </div>
-        <!-- /page content -->
+        @yield('content')
         <!-- footer content -->
         <footer>
           <div class="pull-right">
@@ -528,6 +263,7 @@
     <script src="../Admin/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     <script src="../Admin/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
 
+
     <!-- Custom Theme Scripts -->
     <script src="../Admin/build/js/custom.min.js"></script>
     <script type="text/javascript">
@@ -536,19 +272,16 @@
           type: 'bar',
           data: {
             labels: [
-              "Pegawai", "Rekruitment","Magang","",
+              "Pegawai", "Rekruitment","Magang","Sudah Terima Gaji","Belum Terima Gaji"
             ],
             datasets: [
               {
                 label: "Jumlah",
                 backgroundColor: [
-                  "#343f51","#808080","#343f51","#808080","#343f51",""
+                  "#343f51","#808080","#343f51","#808080","#343f51","#808080","#343f51"
                 ],
                 data: [
-                  {{$user_pegawai}},
-                  {{$user_recruitment}},
-                  {{$user_magang}},
-                  0,
+                  5,5,5,5,5
                 ]
               }
             ]
@@ -557,35 +290,10 @@
             legend: { display: false },
             title: {
               display: true,
-              text: 'Jumlah User Geek Garden Software House'
+              text: 'Grafik Human Resources Information System'
             }
           }
       });
     </script>
-    <script>
- 
- var ctx = document.getElementById("inicanvas").getContext("2d");
- // tampilan chart
- var piechart = new Chart(ctx,{type: 'pie',
-   data : {
- // label nama setiap Value
- labels:[
-           'Sudah Terima Gaji',
-           'Belum Terima Gaji'
-   ],
- datasets: [{
-   // Jumlah Value yang ditampilkan
-    data:[60,60],
-
-   backgroundColor:[
-     'rgba(128, 128, 128)',
-     'rgba(77,77,77)',
-    ]
- }],
- }
- });
-
-</script>
     </body>
 </html>
-

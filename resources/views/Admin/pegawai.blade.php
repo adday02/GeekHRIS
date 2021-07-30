@@ -41,7 +41,7 @@
                         <td>{{$p->email}}</td>
                         <td>{{$p->no_hp}}</td>
                         <td>
-                        <button type="danger" class="btn btn-info btn-sm" data-toggle="modal" data-target="#" ><i class="fa fa-search"></i> Detail</button>
+                        <button type="danger" class="btn btn-info btn-sm" data-toggle="modal" data-target="#detail{{$p->username}}" ><i class="fa fa-search"></i> Detail</button>
                         <button type="danger" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#edit{{$p->username}}" ><i class="fa fa-pencil"></i> Ubah</button>
                         <div style="float:right;">
                                 <form form action="{{route('pegawai.destroy', $p->username)}}" method="POST">
@@ -110,7 +110,8 @@
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Agama</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                    <select class="form-control" name="agama">
+                    <select class="form-control" name="agama" required>
+                        <option disabled="" selected="" value="">Pilih Agama</option>
                         <option>Islam</option>
                         <option>Kristen</option>
                         <option>Katolik</option>
@@ -123,7 +124,8 @@
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Jenis Kelamin</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                    <select class="form-control" name="jenis_kelamin">
+                    <select class="form-control" name="jenis_kelamin" required>
+                        <option disabled="" selected="" value="">Pilih Jenis Kelamin</option>
                         <option>Laki-Laki</option>
                         <option>Perempuan</option>
                     </select>
@@ -133,7 +135,8 @@
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Jabatan</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                    <select class="form-control" name="jabatan">
+                    <select class="form-control" name="jabatan" required>
+                        <option disabled="" selected="" value="">Pilih Jabatan</option>
                         <option>Marketing</option>
                         <option>Analis</option>
                         <option>Desiner</option>
@@ -179,70 +182,55 @@
         </div>
     </div>
 
-    <!-- Modal Tambah -->
-    <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Modal Edit -->
+    @foreach ($pegawai as $p)
+    <div class="modal fade" id="edit{{$p->username}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah Data Pegawai</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Edit Data Pegawai</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-            <form class="form-horizontal form-label-left input_mask" action="{{route('pegawai.store')}}" method="POST" enctype="multipart/form-data">
+            <form class="form-horizontal form-label-left input_mask" action="{{route('pegawai.update', $p->username)}}" method="POST" enctype="multipart/form-data">
             @csrf
+            @method('PATCH')
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Username</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="Masukkan Username" name="username" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Password</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="password" class="form-control" placeholder="Masukkan Password" name="password" required>
+                        <input type="text" class="form-control" value="{{$p->username}}" name="username" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Nama Lengkap</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="Masukkan Nama Lengkap" name="nama" required>
+                        <input type="text" class="form-control" value="{{$p->nama}}" name="nama" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Email</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="email" class="form-control" placeholder="Masukkan Email" name="email" required>
+                        <input type="email" class="form-control" value="{{$p->email}}" name="email" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">No HP</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="Masukkan No HP" name="no_hp" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Agama</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                    <select class="form-control" name="agama">
-                        <option>Islam</option>
-                        <option>Kristen</option>
-                        <option>Katolik</option>
-                        <option>Hindu</option>
-                        <option>Buddha</option>
-                        <option>Konghucu</option>
-                    </select>
+                        <input type="text" class="form-control" Value="{{$p->no_hp}}" name="no_hp" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Jenis Kelamin</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                    <select class="form-control" name="jenis_kelamin">
-                        <option>Laki-Laki</option>
-                        <option>Perempuan</option>
-                    </select>
+                        <input type="text" class="form-control" Value="{{$p->jenis_kelamin}}" readonly>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Agama</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" Value="{{$p->agama}}" readonly>
                     </div>
                 </div>
 
@@ -250,6 +238,7 @@
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Jabatan</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
                     <select class="form-control" name="jabatan">
+                        <option disabled="" selected="" value="">Pilih Jabatan</option>
                         <option>Marketing</option>
                         <option>Analis</option>
                         <option>Desiner</option>
@@ -262,21 +251,21 @@
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Tanggal Lahir</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="date" class="form-control" value="2000-01-01" name="tanggal_lahir" required>
+                        <input type="date" class="form-control" value="{{$p->tanggal_lahir}}"  readonly>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Alamat</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <textarea class="form-control" name="alamat" required></textarea>
+                        <textarea class="form-control" name="alamat" required>{{$p->alamat}}</textarea>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Foto</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="file" class="form-control" placeholder="Default Input" name="foto" required>
+                        <input type="file" class="form-control" placeholder="Default Input" name="foto">
                     </div>
                 </div>
 
@@ -294,4 +283,97 @@
             </div>
         </div>
     </div>
+    @endforeach
+
+    <!-- Modal Detail -->
+    @foreach ($pegawai as $p)
+    <div class="modal fade" id="detail{{$p->username}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Detail Data Pegawai</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            <form class="form-horizontal form-label-left input_mask" action="{{route('pegawai.update', $p->username)}}" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('PATCH')
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Username</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" value="{{$p->username}}" name="username" readonly>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Nama Lengkap</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" value="{{$p->nama}}" name="nama" readonly>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Email</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="email" class="form-control" value="{{$p->email}}" name="email" readonly>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">No HP</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" Value="{{$p->no_hp}}" name="no_hp" readonly>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Jenis Kelamin</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" Value="{{$p->jenis_kelamin}}" readonly>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Agama</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" Value="{{$p->agama}}" readonly>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Jabatan</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" Value="{{$p->jabatan}}" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Tanggal Lahir</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="date" class="form-control" value="{{$p->tanggal_lahir}}"  readonly>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Alamat</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <textarea class="form-control" name="alamat" readonly>{{$p->alamat}}</textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Foto</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <img class="img-responsive avatar-view" src="{{URL::to('/')}}/foto/{{$p->foto}}" alt="Avatar" title="Change the avatar">
+                    </div>
+                </div>
+
+                <div class="ln_solid"></div>
+
+                <div class="form-group">
+                    <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3" align="right">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </form>
+            </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
 @endsection
