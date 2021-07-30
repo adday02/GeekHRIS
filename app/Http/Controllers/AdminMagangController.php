@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Crypt;
 
-class AdminPegawaiController extends Controller
+class AdminMagangController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class AdminPegawaiController extends Controller
      */
     public function index()
     {
-        $pegawai = User::where('status','Pegawai')->get();
-        return view('admin/pegawai',compact('pegawai'))->with('i');
+        $magang = User::where('status','Magang')->get();
+        return view('admin/magang',compact('magang'))->with('i');
     }
 
     /**
@@ -26,7 +26,7 @@ class AdminPegawaiController extends Controller
      */
     public function create()
     {
-        
+        //
     }
 
     /**
@@ -52,10 +52,10 @@ class AdminPegawaiController extends Controller
             'jenis_kelamin'=>$request->jenis_kelamin,
             'alamat'=>$request->alamat,
             'foto'=>$new_name,
-            'status'=>"Pegawai"
+            'status'=>"Magang"
         );
         User::create($data);
-        return redirect('admin\pegawai')->with('success','Pegawai berhasil ditambah');
+        return redirect('admin\magang')->with('success','Anggota Magang berhasil ditambah');
     }
 
     /**
@@ -66,7 +66,7 @@ class AdminPegawaiController extends Controller
      */
     public function show($id)
     {
-        
+        //
     }
 
     /**
@@ -120,8 +120,7 @@ class AdminPegawaiController extends Controller
             'alamat'=>$request->alamat,
         );
     User::whereusername($id)->update($data);
-    return redirect('admin\pegawai');
-
+    return redirect('admin\magang');
     }
 
     /**
@@ -135,9 +134,9 @@ class AdminPegawaiController extends Controller
         try{
             $datas = User::findOrfail($id);
             $datas->delete();
-            return redirect('admin\pegawai')->with('success','pegawai Berhasil Dihapus');
+            return redirect('admin\magang')->with('success','Anggota Magang Berhasil Dihapus');
         }catch(\Throwable $th){
-            return redirect('admin\pegawai')->withErrors('Data gagal dihapus. Harap hapus data yang terkait');
+            return redirect('admin\magang')->withErrors('Data gagal dihapus. Harap hapus data yang terkait');
         }
     }
 }

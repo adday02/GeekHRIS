@@ -46,6 +46,46 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admin',
+        ],
+
+        'apiadmin' => [
+            'driver' => 'token',
+            'provider' => 'admin',
+            'hash' => false,
+        ],
+        'pegawai' => [
+            'driver' => 'session',
+            'provider' => 'pegawai',
+        ],
+
+        'apipegawai' => [
+            'driver' => 'token',
+            'provider' => 'pegawai',
+            'hash' => false,
+        ],
+        'recruitment' => [
+            'driver' => 'session',
+            'provider' => 'recruitment',
+        ],
+
+        'apirecruitment' => [
+            'driver' => 'token',
+            'provider' => 'recruitment',
+            'hash' => false,
+        ],
+        'magang' => [
+            'driver' => 'session',
+            'provider' => 'magang',
+        ],
+
+        'apimagang' => [
+            'driver' => 'token',
+            'provider' => 'magang',
+            'hash' => false,
+        ],
     ],
 
     /*
@@ -64,11 +104,26 @@ return [
     | Supported: "database", "eloquent"
     |
     */
-
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'admin' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Login::class,
+        ],
+        'pegawai' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Login::class,
+        ],
+        'recruitment' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Login::class,
+        ],
+        'magang' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Login::class,
         ],
 
         // 'users' => [
