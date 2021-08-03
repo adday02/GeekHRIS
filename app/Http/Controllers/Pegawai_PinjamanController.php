@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\Pinjaman;
 
-class Pegawai_ProfileController extends Controller
+class Pegawai_PinjamanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,8 @@ class Pegawai_ProfileController extends Controller
      */
     public function index()
     {
-        return view('pegawai/profile');
+        $pinjaman = Pinjaman::where('username','{{auth()->user()->username}}')->get();
+        return view('pegawai/pinjaman-pegawai',compact('pinjaman'))->with('i');
     }
 
     /**
@@ -24,7 +25,7 @@ class Pegawai_ProfileController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -35,7 +36,15 @@ class Pegawai_ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = array(
+            'username'=>$request->username,
+            'nominal'=>$request->nominal,
+            'keterangan'=>$request->keterangan,
+            'tgl'=>$request->tgl,
+            'status'=>$request->status,
+        );
+        User::create($data);
+        return redirect('pegawai/pinjaman-pegawai')->with('success','Pegawai berhasil ditambah');
     }
 
     /**
@@ -46,7 +55,7 @@ class Pegawai_ProfileController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -100,7 +109,8 @@ class Pegawai_ProfileController extends Controller
             'alamat'=>$request->alamat,
         );
     User::whereusername($id)->update($data);
-    return redirect('pegawai\profile-pegawai');
+    return redirect('pegawai/pinjaman-pegawai');
+
     }
 
     /**
@@ -111,6 +121,12 @@ class Pegawai_ProfileController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try{
+            $datas = User::findOrfail($id);
+            $datas->delete();
+            return redirect('pegawai/pinjaman-pegawai')->with('success','pegawai Berhasil Dihapus');
+        }catch(\Throwable $th){
+            return redirect('pegawai/pinjaman-pegawai')->withErrors('Data gagal dihapus. Harap hapus data yang terkait');
+        }
     }
 }

@@ -39,6 +39,7 @@ Route::group(['prefix'=> 'admin','middleware'=> 'auth:admin'], function()
 Route::group(['prefix'=> 'pegawai','middleware'=> 'auth:pegawai'], function()
 {
     Route::resource('profile-pegawai',Pegawai_ProfileController::class);
+    Route::resource('pinjaman-pegawai',Pegawai_PinjamanController::class);
 });
 
 //HALAMAN LOGIN
