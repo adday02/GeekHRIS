@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminPegawaiController;
+use App\Http\Controllers\Admin_absenController;
+use App\Http\Controllers\Pegawai_profileController;
+use App\Http\Controllers\Pegawai_penCutiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +20,7 @@ use App\Http\Controllers\AdminPegawaiController;
 Route::group(['prefix'=> 'admin'], function()
 {
     Route::resource('pegawai',AdminPegawaiController::class);
+    Route::resource('absen',Admin_absenController::class);
 });
 
 Route::get('/', function () {
@@ -31,4 +35,13 @@ Route::get('/recruitment', function () {
 });
 Route::get('/magang', function () {
     return view('Admin.magang');
+});
+
+
+Route::group(['prefix'=> 'pegawai'], function()
+{
+    Route::resource('cuti-pegawai',Pegawai_penCutiController::class);
+    Route::resource('profile-pegawai',Pegawai_profileController::class);
+
+    
 });

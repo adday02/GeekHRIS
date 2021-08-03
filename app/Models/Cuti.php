@@ -11,7 +11,7 @@ class Cuti extends Model
     protected $primaryKey = 'id_cuti';
     protected $fillable = [ 'id_cuti', 'username', 'tanggal', 'keterangan','status'];
     public $timestamps = false;
-    
+    protected $keyType = 'integer';
     
     public function user()
     {
