@@ -9,6 +9,9 @@ use App\Http\Controllers\Pegawai_profileController;
 use App\Http\Controllers\Pegawai_penCutiController;
 use App\Http\Controllers\AdminRecruitmentController;
 use App\Http\Controllers\AdminMagangController;
+use App\Http\Controllers\AdminGajiPokokController;
+use App\Http\Controllers\AdminTunjanganController;
+
 
 
 
@@ -30,6 +33,8 @@ Route::group(['prefix'=> 'admin','middleware'=> 'auth:admin'], function()
     Route::resource('absen',Admin_absenController::class);
     Route::resource('recruitment',AdminRecruitmentController::class);
     Route::resource('magang',AdminMagangController::class);
+    Route::resource('gajipokok',AdminGajiPokokController::class);
+    Route::resource('tunjangan',AdminTunjanganController::class);
 });
 Route::group(['prefix'=> 'pegawai','middleware'=> 'auth:pegawai'], function()
 {
