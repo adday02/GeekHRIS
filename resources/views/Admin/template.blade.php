@@ -59,12 +59,12 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                  <li><a href="{{URL('/dashboard')}}"><i class="fa fa-tachometer "></i> Dashboard </a></li>
+                  <li><a href="{{URL('admin/dashboard')}}"><i class="fa fa-tachometer "></i> Dashboard </a></li>
                   <li><a><i class="fa fa-users"></i> User <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{URL('/pegawai')}}">Pegawai</a></li>
-                      <li><a href="{{URL('/recruitment')}}">Rekruitment</a></li>
-                      <li><a href="{{URL('/magang')}}">Magang</a></li>
+                      <li><a href="{{URL('admin/pegawai')}}">Pegawai</a></li>
+                      <li><a href="{{URL('admin/recruitment')}}">Rekruitment</a></li>
+                      <li><a href="{{URL('admin/magang')}}">Magang</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-money"></i> Gaji <span class="fa fa-chevron-down"></span></a>
@@ -269,5 +269,34 @@
 
     <!-- Custom Theme Scripts -->
     <script src="../Admin/build/js/custom.min.js"></script>
+    <script type="text/javascript">
+      // Bar chart
+      new Chart(document.getElementById("bar-chart"), {
+          type: 'bar',
+          data: {
+            labels: [
+              "Pegawai", "Rekruitment","Magang","Sudah Terima Gaji","Belum Terima Gaji"
+            ],
+            datasets: [
+              {
+                label: "Jumlah",
+                backgroundColor: [
+                  "#343f51","#808080","#343f51","#808080","#343f51","#808080","#343f51"
+                ],
+                data: [
+                  5,5,5,5,5
+                ]
+              }
+            ]
+          },
+          options: {
+            legend: { display: false },
+            title: {
+              display: true,
+              text: 'Grafik Human Resources Information System'
+            }
+          }
+      });
+    </script>
     </body>
 </html>
