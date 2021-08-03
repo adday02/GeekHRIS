@@ -9,8 +9,9 @@ class Absen extends Model
 {
     protected $table='absens';
     protected $primaryKey = 'id_absen';
-    protected $fillable = [ 'id_absen', 'username', 'tanggal', 'status'];
+    protected $fillable = [ 'id_absen', 'username',  'status','tanggal'];
     public $timestamps = false;
+    protected $keyType = 'integer';
 
     public function user()
     {

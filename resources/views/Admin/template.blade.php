@@ -84,9 +84,10 @@
                       <li><a href="#">Rekap Absensi Tanpa Kabar</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-clock-o"></i> Jadwal <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-clock-o"></i> Pengajuan <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Jadwal Cuti</a></li>
+                      <li><a href="#">Pengajuan Cuti</a></li>
+                      <li><a href="#">Pengajuan Pinjaman</a></li>
                     </ul>
                   </li>
                   </ul>
