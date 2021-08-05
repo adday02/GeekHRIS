@@ -86,8 +86,8 @@
                   </li>
                   <li><a><i class="fa fa-clock-o"></i> Pengajuan <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Pengajuan Cuti</a></li>
-                      <li><a href="#">Pengajuan Pinjaman</a></li>
+                      <li><a href="{{URL('admin/cuti')}}">Pengajuan Cuti</a></li>
+                      <li><a href="{{URL('admin/pinjaman')}}">Pengajuan Pinjaman</a></li>
                     </ul>
                   </li>
                   </ul>
