@@ -90,8 +90,24 @@
                       <li><a href="{{URL('admin/pinjaman')}}">Pengajuan Pinjaman</a></li>
                     </ul>
                   </li>
+
+                  <li><a><i class="fa fa-desktop"></i> Pekerjaan <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{URL('admin/lowongan')}}">Lowongan Pekerjaan</a></li>
+                      <li><a href="{{URL('admin/lamaran')}}">Lamaran Pekerjaan</a></li>
+                    </ul>
+                  </li>
+
+                  <li><a><i class="fa fa-bar-chart-o"></i> Penilaian Kinerja Karyawan <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{URL('/')}}">Penilaian Kerja</a></li>
+                     
+                    </ul>
+                  </li>
+
                   </ul>
               </div>
+
 
             </div>
             <!-- /sidebar menu -->

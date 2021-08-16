@@ -11,6 +11,7 @@ class Tunjangan extends Model
     protected $primaryKey = 'id_tunjangan';
     protected $fillable = [ 'id_tunjangan', 'username','jenis', 'nominal'];
     public $timestamps = false;
+    protected $keyType = 'integer';
 
     public function user()
     {

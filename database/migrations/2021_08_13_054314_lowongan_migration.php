@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class GajiPokokMigration extends Migration
+class LowonganMigration extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class GajiPokokMigration extends Migration
      */
     public function up()
     {
-        Schema::create('gajipokoks', function (Blueprint $table) {
-            $table->Increments('id_gajipokok');
-            $table->string('jabatan');
-            $table->string('nominal');
+        Schema::create('lowongans', function (Blueprint $table) {
+            $table->Increments('id_lowongan');
+            $table->string('nama_lowongan');
+            $table->string('persyaratan');
+            
             
             $table->timestamps();
         });
@@ -29,6 +30,6 @@ class GajiPokokMigration extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gajipokoks');
+        Schema::dropIfExists('lowongans');
     }
 }

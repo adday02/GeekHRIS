@@ -73,23 +73,38 @@
                       <li><a href="#">Gaji Tunjangan</a></li>
                       <li><a href="#">Gaji Lembur</a></li>
                       <li><a href="#">Lain-Lain</a></li>
-                      <li><a href="#">Total Gaji</a></li>
+                      <li><a href="#">Laporan Gaji</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-book"></i> Absensi <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Absensi Pegawai</a></li>
+                      <li><a href="{{URL('admin/absen')}}">Absensi Pegawai</a></li>
                       <li><a href="#">Rekap Absensi Sakit</a></li>
                       <li><a href="#">Rekap Absensi Izin</a></li>
                       <li><a href="#">Rekap Absensi Tanpa Kabar</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-clock-o"></i> Pengajuan <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-edit"></i> Pengajuan <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{URL('admin/cuti')}}">Pengajuan Cuti</a></li>
                       <li><a href="{{URL('admin/pinjaman')}}">Pengajuan Pinjaman</a></li>
                     </ul>
                   </li>
+
+                  <li><a><i class="fa fa-desktop"></i> Pekerjaan <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{URL('admin/lowongan')}}">Lowongan Pekerjaan</a></li>
+                      <li><a href="{{URL('admin/lamaran')}}">Lamaran Pekerjaan</a></li>
+                    </ul>
+                  </li>
+
+                  <li><a><i class="fa fa-bar-chart-o"></i> Penilaian Kinerja Karyawan <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{URL('/')}}">Penilaian Kerja</a></li>
+                     
+                    </ul>
+                  </li>
+
                   </ul>
               </div>
 

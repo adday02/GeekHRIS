@@ -10,7 +10,7 @@ class User extends Model
 {
     protected $table='users';
     protected $primaryKey = 'username';
-    protected $fillable = [ 'username', 'password', 'nama', 'email', 'jabatan', 'tanggal_lahir', 'jenis_kelamin', 'alamat', 'agama', 'no_hp', 'foto', 'status' ];
+    protected $fillable = [ 'username', 'password', 'nama', 'email', 'divisi', 'pic', 'tanggal_lahir', 'jenis_kelamin', 'alamat', 'agama', 'no_hp', 'foto', 'status' ];
     public $timestamps = false;
     protected $keyType = 'string';
 }
