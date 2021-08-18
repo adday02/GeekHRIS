@@ -37,7 +37,7 @@
                     <tr>
                         <td>{{++$i}}</td>
                         <td>{{$p->nama}}</td>
-                        <td>{{$p->jabatan}}</td>
+                        <td>{{$p->GajiPokok->jabatan}}</td>
                         <td>{{$p->email}}</td>
                         <td>{{$p->no_hp}}</td>
                         <td>
@@ -100,10 +100,42 @@
                         <input type="email" class="form-control" placeholder="Masukkan Email" name="email" required>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">No HP</label>
+
+                <div class="form-group row">
+ 				<label for="id_muthowwif" class="col-sm-2 col-form-label">Gaji Pokok</label>
+                	<div class="col-sm-5">
+                    	<select name="id_gaji_pokok" id="id_gaji_pokok" class="form-control">
+                			<option value="">== Pilih GajiPokok ==</option>
+                			@foreach ($gaji_pokoks as $p)
+                    		<option value="{{ $p->id_gaji_pokok }}">{{ $p->jabatan }}</option>
+                			@endforeach
+                 		</select>
+                 	</div>
+            </div>
+
+            <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Tanggal Lahir</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="Masukkan No HP" name="no_hp" required>
+                        <input type="date" class="form-control" value="2000-01-01" name="tanggal_lahir" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Jenis Kelamin</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                    <select class="form-control" name="jenis_kelamin" required>
+                        <option disabled="" selected="" value="">Pilih Jenis Kelamin</option>
+                        <option>Laki-Laki</option>
+                        <option>Perempuan</option>
+
+                    </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Alamat</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <textarea class="form-control" name="alamat" required></textarea>
                     </div>
                 </div>
 
@@ -121,44 +153,42 @@
                     </select>
                     </div>
                 </div>
+
                 <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Jenis Kelamin</label>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">No HP</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                    <select class="form-control" name="jenis_kelamin" required>
-                        <option disabled="" selected="" value="">Pilih Jenis Kelamin</option>
-                        <option>Laki-Laki</option>
-                        <option>Perempuan</option>
+                        <input type="text" class="form-control" placeholder="Masukkan No HP" name="no_hp" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Divisi</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                    <select class="form-control" name="divisi" required>
+                        <option disabled="" selected="" value="">Pilih Divisi</option>
+                        <option>Teknis</option>
+                        <option>Front End</option>
+                        <option>Back End</option>
+                        <option>Desain UI/UX</option>
+                        <option>QA/QC</option>
+                        
                     </select>
                     </div>
                 </div>
 
+               
+                
+
                 <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Jabatan</label>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">PIC</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                    <select class="form-control" name="jabatan" required>
-                        <option disabled="" selected="" value="">Pilih Jabatan</option>
-                        <option>Marketing</option>
-                        <option>Analis</option>
-                        <option>Desiner</option>
-                        <option>Programer</option>
-                        <option>Tester</option>
-                    </select>
+                        <input type="text" class="form-control" placeholder="Masukan PIC" name="pic" required>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Tanggal Lahir</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="date" class="form-control" value="2000-01-01" name="tanggal_lahir" required>
-                    </div>
-                </div>
+                
 
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Alamat</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                        <textarea class="form-control" name="alamat" required></textarea>
-                    </div>
-                </div>
+                
 
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Foto</label>
@@ -215,6 +245,17 @@
                         <input type="email" class="form-control" value="{{$p->email}}" name="email" required>
                     </div>
                 </div>
+                <div class="form-group row">
+ 				<label for="id_muthowwif" class="col-sm-2 col-form-label">Gaji Pokok</label>
+                	<div class="col-sm-5">
+                    	<select name="id_gaji_pokok" id="id_gaji_pokok" class="form-control">
+                			<option value="">== Pilih GajiPokok ==</option>
+                			@foreach ($gaji_pokoks as $p)
+                    		<option value="{{ $p->id_gaji_pokok }}">{{ $p->jabatan }}</option>
+                			@endforeach
+                 		</select>
+                 	</div>
+            </div>
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">No HP</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
@@ -234,19 +275,7 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Jabatan</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                    <select class="form-control" name="jabatan">
-                        <option disabled="" selected="" value="">Pilih Jabatan</option>
-                        <option>Marketing</option>
-                        <option>Analis</option>
-                        <option>Desiner</option>
-                        <option>Programer</option>
-                        <option>Tester</option>
-                    </select>
-                    </div>
-                </div>
+                
 
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Tanggal Lahir</label>
@@ -319,6 +348,12 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Gaji Pokok</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" value="{{$p->id_gaji_pokok}}" name="email" readonly>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">No HP</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
                         <input type="text" class="form-control" Value="{{$p->no_hp}}" name="no_hp" readonly>
@@ -336,12 +371,7 @@
                         <input type="text" class="form-control" Value="{{$p->agama}}" readonly>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Jabatan</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" Value="{{$p->jabatan}}" readonly>
-                    </div>
-                </div>
+               
 
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Tanggal Lahir</label>

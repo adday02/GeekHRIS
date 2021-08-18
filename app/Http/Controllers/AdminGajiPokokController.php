@@ -15,8 +15,8 @@ class AdminGajiPokokController extends Controller
      */
     public function index()
     {
-        $gajipokok = GajiPokok::All();
-        return view('admin/gajipokok',compact('gajipokok'))->with('i');
+        $gaji_pokoks = GajiPokok::All();
+        return view('admin/gajipokok',compact('gaji_pokoks'))->with('i');
     }
 
     /**
@@ -81,13 +81,13 @@ class AdminGajiPokokController extends Controller
             $data = array(
                 'jabatan'=>$request->jabatan,
             );
-            GajiPokok::whereid_gajipokok($id)->update($data);
+            GajiPokok::whereid_gaji_pokok($id)->update($data);
         }
         $data = array(
         'nominal'=>$request->nominal,
             
         );
-    GajiPokok::whereid_gajipokok($id)->update($data);
+    GajiPokok::whereid_gaji_pokok($id)->update($data);
     return redirect('admin\gajipokok');
 
     }
