@@ -154,6 +154,10 @@
                             <option value="Izin">Izin</option>
                             <option value="Sakit">Sakit</option>
                             <option value="Tanpa Keterangan">Tanpa Keterangan</option>
+                            <option value="Datang Lambat / Lupa Catat">Datang Lambat / Lupa Catat</option>
+                            <option value="Masuk Setengah Hari">Masuk Setengah Hari</option>
+                            <option value="Surat Teguran<">Surat Teguran</option>
+                            <option value="Surat Peringatan">Surat Peringatan</option>
                 			
                  		</select>
                  	</div>

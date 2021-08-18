@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\GajiPokok;
 use Illuminate\Support\Facades\Crypt;
 
 class AdminPegawaiController extends Controller
@@ -16,7 +17,8 @@ class AdminPegawaiController extends Controller
     public function index()
     {
         $pegawai = User::where('status','Pegawai')->get();
-        return view('admin/pegawai',compact('pegawai'))->with('i');
+        $gaji_pokoks = GajiPokok::all();
+        return view('admin/pegawai',compact('pegawai','gaji_pokoks'))->with('i');
     }
 
     /**
@@ -44,13 +46,14 @@ class AdminPegawaiController extends Controller
             'username'=>$request->username,
             'password'=>Crypt::encryptString($request->password),
             'nama'=>$request->nama,
-            'agama'=>$request->agama,
             'email'=>$request->email,
-            'no_hp'=>$request->no_hp,
-            'jabatan'=>$request->jabatan,
+            'id_gaji_pokok'=>$request->id_gaji_pokok,
             'tanggal_lahir'=>$request->tanggal_lahir,
             'jenis_kelamin'=>$request->jenis_kelamin,
             'alamat'=>$request->alamat,
+            'agama'=>$request->agama,
+            'no_hp'=>$request->no_hp,
+            'divisi'=>$request->divisi,
             'foto'=>$new_name,
             'status'=>"Pegawai"
         );
@@ -99,17 +102,18 @@ class AdminPegawaiController extends Controller
             );
         User::whereusername($id)->update($data);
         }
-        if($request->has('jabatan'))
-        {
-            $data = array(
-                'jabatan'=>$request->jabatan,
-            );
-            User::whereusername($id)->update($data);
-        }
+        
         if($request->has('agama'))
         {
             $data = array(
                 'agama'=>$request->agama,
+            );
+            User::whereusername($id)->update($data);
+        }
+        if($request->has('id_gaji_pokok'))
+        {
+            $data = array(
+                'id_gaji_pokok'=>$request->agama,
             );
             User::whereusername($id)->update($data);
         }

@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class GajiPokok extends Model
 {
-    protected $table='gajipokoks';
-    protected $primaryKey = 'id_gajipokok';
-    protected $fillable = [ 'id_gajipokok', 'jabatan', 'nominal'];
+    protected $table='gaji_pokoks';
+    protected $primaryKey = 'id_gaji_pokok';
+    protected $fillable = [ 'id_gaji_pokok', 'jabatan', 'nominal'];
     public $timestamps = false;
     protected $keyType = 'integer';
     

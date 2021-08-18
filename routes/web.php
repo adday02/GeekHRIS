@@ -27,7 +27,7 @@ use App\Http\Controllers\Admin_PinjamanController;
 |
 */
 
-Route::group(['prefix'=> 'admin', 'middleware'=> 'auth:admin'], function()
+Route::group(['prefix'=> 'admin'], function()
 {
     Route::resource('dashboard',AdminDashboardController::class);
     Route::resource('pegawai',AdminPegawaiController::class);
