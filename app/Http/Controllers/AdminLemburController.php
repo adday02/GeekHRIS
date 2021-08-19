@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Tunjangan;
+use App\Models\Lembur;
 use Illuminate\Support\Facades\Crypt; 
 use App\Models\User;
 
-class AdminTunjanganController extends Controller
+class AdminLemburController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,9 @@ class AdminTunjanganController extends Controller
      */
     public function index()
     {
-        $tunjangan = Tunjangan::All();
+        $lembur = Lembur::All();
         $pegawais = User ::where('status','pegawai')->get();
-        return view('admin/tunjangan',compact('tunjangan','pegawais'))->with('i');
+        return view('admin/lembur',compact('lembur','pegawais'))->with('i');
     }
 
     /**
@@ -41,11 +41,11 @@ class AdminTunjanganController extends Controller
     {
         $data = array(
             'username'=>$request->username,
+            'tanggal'=>$request->tanggal,
             'nominal'=>$request->nominal,
-            'jenis'=>$request->jenis,
         );
-        Tunjangan::create($data);
-        return redirect('admin\tunjangan')->with('success','tunjangan berhasil ditambah');
+        Lembur::create($data);
+        return redirect('admin\lembur')->with('success','lembur berhasil ditambah');
     }
 
     /**
@@ -79,12 +79,12 @@ class AdminTunjanganController extends Controller
      */
     public function update(Request $request, $id)
     {
-            if($request->has('jenis'))
+            if($request->has('tanggal'))
         {
             $data = array(
-                'jenis'=>$request->jenis,
+                'tanggal'=>$request->tanggal,
             );
-            Tunjangan::whereid_tunjangan($id)->update($data);
+            Lembur::whereid_lembur($id)->update($data);
         }
             $data = array(
                 'nominal'=>$request->nominal,
@@ -94,8 +94,8 @@ class AdminTunjanganController extends Controller
                 'username'=>$request->username,
                         
                 );
-    Tunjangan::whereid_tunjangan($id)->update($data);
-    return redirect('admin\tunjangan');
+    Lembur::whereid_lembur($id)->update($data);
+    return redirect('admin\lembur');
 
     }
 
@@ -108,11 +108,11 @@ class AdminTunjanganController extends Controller
     public function destroy($id)
     {
         try{
-            $datas = Tunjangan::findOrfail($id);
+            $datas = Lembur::findOrfail($id);
             $datas->delete();
-            return redirect('admin\tunjangan')->with('success','tunjangan Berhasil Dihapus');
+            return redirect('admin\lembur')->with('success','lembur Berhasil Dihapus');
         }catch(\Throwable $th){
-            return redirect('admin\tunjangan')->withErrors('Data gagal dihapus. Harap hapus data yang terkait');
+            return redirect('admin\lembur')->withErrors('Data gagal dihapus. Harap hapus data yang terkait');
         }
     }
 }

@@ -71,7 +71,7 @@
                     <ul class="nav child_menu">
                       <li><a href="{{URL('admin/gajipokok')}}">Gaji Pokok</a></li>
                       <li><a href="{{URL('admin/gajitunjangan')}}">Gaji Tunjangan</a></li>
-                      <li><a href="#">Gaji Lembur</a></li>
+                      <li><a href="{{URL('admin/gajilembur')}}">Gaji Lembur</a></li>
                       <li><a href="#">Lain-Lain</a></li>
                       <li><a href="#">Total Gaji</a></li>
                     </ul>
