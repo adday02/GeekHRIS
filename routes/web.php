@@ -13,7 +13,7 @@ use App\Http\Controllers\AdminGajiPokokController;
 use App\Http\Controllers\AdminTunjanganController;
 use App\Http\Controllers\Admin_CutiController;
 use App\Http\Controllers\Admin_PinjamanController;
-
+use App\Http\Controllers\Admin_LowonganController;
 
 
 /*
@@ -27,7 +27,7 @@ use App\Http\Controllers\Admin_PinjamanController;
 |
 */
 
-Route::group(['prefix'=> 'admin'], function()
+Route::group(['prefix'=> 'admin', 'middleware'=> 'auth:admin'], function()
 {
     Route::resource('dashboard',AdminDashboardController::class);
     Route::resource('pegawai',AdminPegawaiController::class);
@@ -38,6 +38,7 @@ Route::group(['prefix'=> 'admin'], function()
     Route::resource('tunjangan',AdminTunjanganController::class);
     Route::resource('cuti',Admin_CutiController::class);
     Route::resource('pinjaman',Admin_PinjamanController::class);
+    Route::resource('lowongan',Admin_LowonganController::class);
 });
 Route::group(['prefix'=> 'pegawai', 'middleware'=> 'auth:pegawai'], function()
 {
