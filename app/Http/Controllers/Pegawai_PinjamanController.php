@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
-use App\Models\GajiPokok;
-use Illuminate\Support\Facades\Crypt;
+use App\Models\Pinjaman;
 
-class AdminPegawaiController extends Controller
+class Pegawai_PinjamanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +14,8 @@ class AdminPegawaiController extends Controller
      */
     public function index()
     {
-        $pegawai = User::where('status','Pegawai')->get();
-        $gaji_pokoks = GajiPokok::all();
-        return view('admin/pegawai',compact('pegawai','gaji_pokoks'))->with('i');
+        $pinjaman = Pinjaman::where('username','{{auth()->user()->username}}')->get();
+        return view('pegawai/pinjaman-pegawai',compact('pinjaman'))->with('i');
     }
 
     /**
@@ -39,26 +36,15 @@ class AdminPegawaiController extends Controller
      */
     public function store(Request $request)
     {
-        $foto = $request->file('foto');
-        $new_name = rand().'.'.$foto->getClientOriginalExtension();
-        $foto->move(public_path('foto'), $new_name);
         $data = array(
             'username'=>$request->username,
-            'password'=>Crypt::encryptString($request->password),
-            'nama'=>$request->nama,
-            'email'=>$request->email,
-            'id_gaji_pokok'=>$request->id_gaji_pokok,
-            'tanggal_lahir'=>$request->tanggal_lahir,
-            'jenis_kelamin'=>$request->jenis_kelamin,
-            'alamat'=>$request->alamat,
-            'agama'=>$request->agama,
-            'no_hp'=>$request->no_hp,
-            'divisi'=>$request->divisi,
-            'foto'=>$new_name,
-            'status'=>"Pegawai"
+            'nominal'=>$request->nominal,
+            'keterangan'=>$request->keterangan,
+            'tgl'=>$request->tgl,
+            'status'=>$request->status,
         );
         User::create($data);
-        return redirect('admin\pegawai')->with('success','Pegawai berhasil ditambah');
+        return redirect('pegawai/pinjaman-pegawai')->with('success','Pegawai berhasil ditambah');
     }
 
     /**
@@ -102,18 +88,17 @@ class AdminPegawaiController extends Controller
             );
         User::whereusername($id)->update($data);
         }
-        
+        if($request->has('jabatan'))
+        {
+            $data = array(
+                'jabatan'=>$request->jabatan,
+            );
+            User::whereusername($id)->update($data);
+        }
         if($request->has('agama'))
         {
             $data = array(
                 'agama'=>$request->agama,
-            );
-            User::whereusername($id)->update($data);
-        }
-        if($request->has('id_gaji_pokok'))
-        {
-            $data = array(
-                'id_gaji_pokok'=>$request->agama,
             );
             User::whereusername($id)->update($data);
         }
@@ -124,7 +109,7 @@ class AdminPegawaiController extends Controller
             'alamat'=>$request->alamat,
         );
     User::whereusername($id)->update($data);
-    return redirect('admin\pegawai');
+    return redirect('pegawai/pinjaman-pegawai');
 
     }
 
@@ -139,9 +124,9 @@ class AdminPegawaiController extends Controller
         try{
             $datas = User::findOrfail($id);
             $datas->delete();
-            return redirect('admin\pegawai')->with('success','pegawai Berhasil Dihapus');
+            return redirect('pegawai/pinjaman-pegawai')->with('success','pegawai Berhasil Dihapus');
         }catch(\Throwable $th){
-            return redirect('admin\pegawai')->withErrors('Data gagal dihapus. Harap hapus data yang terkait');
+            return redirect('pegawai/pinjaman-pegawai')->withErrors('Data gagal dihapus. Harap hapus data yang terkait');
         }
     }
 }

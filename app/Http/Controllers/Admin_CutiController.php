@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+ 
 use Illuminate\Http\Request;
-use App\Models\GajiPokok;
-use Illuminate\Support\Facades\Crypt; 
+use App\Models\Cuti;
+use App\Models\User;
 
-class AdminGajiPokokController extends Controller
+class Admin_CutiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class AdminGajiPokokController extends Controller
      */
     public function index()
     {
-        $gaji_pokoks = GajiPokok::All();
-        return view('admin/gajipokok',compact('gaji_pokoks'))->with('i');
+        $cutis = Cuti::all();
+        return view('admin/cuti',compact('cutis'))->with('i');
     }
 
     /**
@@ -26,7 +26,7 @@ class AdminGajiPokokController extends Controller
      */
     public function create()
     {
-        
+        //
     }
 
     /**
@@ -38,11 +38,13 @@ class AdminGajiPokokController extends Controller
     public function store(Request $request)
     {
         $data = array(
-            'nominal'=>$request->nominal,
-            'jabatan'=>$request->jabatan,
+            'username'=>$request->username,
+            'tanggal'=>$request->tanggal,
+            'keterangan'=>$request->keterangan,
+            'status'=>'Dalam Proses',
         );
-        GajiPokok::create($data);
-        return redirect('admin\gajipokok')->with('success','gajipokok berhasil ditambah');
+        Cuti::create($data);
+        return redirect('admin\cuti')->with('success','Cuti berhasil ditambah');
     }
 
     /**
@@ -53,7 +55,7 @@ class AdminGajiPokokController extends Controller
      */
     public function show($id)
     {
-        
+        //
     }
 
     /**
@@ -76,20 +78,11 @@ class AdminGajiPokokController extends Controller
      */
     public function update(Request $request, $id)
     {
-            if($request->has('jabatan'))
-        {
-            $data = array(
-                'jabatan'=>$request->jabatan,
-            );
-            GajiPokok::whereid_gaji_pokok($id)->update($data);
-        }
         $data = array(
-        'nominal'=>$request->nominal,
-            
+            'status'=>$request->status,
         );
-    GajiPokok::whereid_gaji_pokok($id)->update($data);
-    return redirect('admin\gajipokok');
-
+        Cuti::whereid_cuti($id)->update($data);
+        return redirect('admin\cuti');
     }
 
     /**
@@ -101,11 +94,11 @@ class AdminGajiPokokController extends Controller
     public function destroy($id)
     {
         try{
-            $datas = GajiPokok::findOrfail($id);
+            $datas = Cuti::findOrfail($id);
             $datas->delete();
-            return redirect('admin\gajipokok')->with('success','gajipokok Berhasil Dihapus');
+            return redirect('admin/cuti')->with('success','Cuti Berhasil Dihapus');
         }catch(\Throwable $th){
-            return redirect('admin\gajipokok')->withErrors('Data gagal dihapus. Harap hapus data yang terkait');
+            return redirect('admin/cuti')->withErrors('Data gagal dihapus. Harap hapus data yang terkait');
         }
     }
 }

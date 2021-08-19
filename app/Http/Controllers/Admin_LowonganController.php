@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\GajiPokok;
-use Illuminate\Support\Facades\Crypt; 
+use App\Models\Lowongan;
 
-class AdminGajiPokokController extends Controller
+class Admin_LowonganController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class AdminGajiPokokController extends Controller
      */
     public function index()
     {
-        $gaji_pokoks = GajiPokok::All();
-        return view('admin/gajipokok',compact('gaji_pokoks'))->with('i');
+        $lowongans = Lowongan::all();
+        return view('admin/lowongan',compact('lowongans'))->with('i');
     }
 
     /**
@@ -26,7 +25,7 @@ class AdminGajiPokokController extends Controller
      */
     public function create()
     {
-        
+        //
     }
 
     /**
@@ -38,11 +37,12 @@ class AdminGajiPokokController extends Controller
     public function store(Request $request)
     {
         $data = array(
-            'nominal'=>$request->nominal,
-            'jabatan'=>$request->jabatan,
+            'id_lowongan'=>$request->id_lowongan,
+            'nama_lowongan'=>$request->nama_lowongan,
+            'persyaratan'=>$request->persyaratan,
         );
-        GajiPokok::create($data);
-        return redirect('admin\gajipokok')->with('success','gajipokok berhasil ditambah');
+        Lowongan::create($data);
+        return redirect('admin\lowongan')->with('success','Lowongan Pekerjaan berhasil ditambah');
     }
 
     /**
@@ -53,7 +53,7 @@ class AdminGajiPokokController extends Controller
      */
     public function show($id)
     {
-        
+        //
     }
 
     /**
@@ -76,20 +76,12 @@ class AdminGajiPokokController extends Controller
      */
     public function update(Request $request, $id)
     {
-            if($request->has('jabatan'))
-        {
-            $data = array(
-                'jabatan'=>$request->jabatan,
-            );
-            GajiPokok::whereid_gaji_pokok($id)->update($data);
-        }
         $data = array(
-        'nominal'=>$request->nominal,
-            
+            'nama_lowongan'=>$request->nama_lowongan,
+            'persyaratan'=>$request->persyaratan,
         );
-    GajiPokok::whereid_gaji_pokok($id)->update($data);
-    return redirect('admin\gajipokok');
-
+        Lowongan::whereid_lowongan($id)->update($data);
+        return redirect('admin\lowongan');
     }
 
     /**
@@ -101,11 +93,11 @@ class AdminGajiPokokController extends Controller
     public function destroy($id)
     {
         try{
-            $datas = GajiPokok::findOrfail($id);
+            $datas = Lowongan::findOrfail($id);
             $datas->delete();
-            return redirect('admin\gajipokok')->with('success','gajipokok Berhasil Dihapus');
+            return redirect('admin/lowongan')->with('success','Lowongan Berhasil Dihapus');
         }catch(\Throwable $th){
-            return redirect('admin\gajipokok')->withErrors('Data gagal dihapus. Harap hapus data yang terkait');
+            return redirect('admin/lowongan')->withErrors('Data gagal dihapus. Harap hapus data yang terkait');
         }
     }
 }

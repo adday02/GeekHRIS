@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class Pegawai_ProfileController extends Controller
 {
@@ -68,7 +69,38 @@ class Pegawai_ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $foto = $request->file('foto');
+        if($request->hasFile('foto'))
+        {
+            $new_name = rand().'.'.$foto->getClientOriginalExtension();
+            $foto->move(public_path('foto'), $new_name);
+            $data = array(            
+                'foto'=>$new_name,
+            );
+        User::whereusername($id)->update($data);
+        }
+        if($request->has('jabatan'))
+        {
+            $data = array(
+                'jabatan'=>$request->jabatan,
+            );
+            User::whereusername($id)->update($data);
+        }
+        if($request->has('agama'))
+        {
+            $data = array(
+                'agama'=>$request->agama,
+            );
+            User::whereusername($id)->update($data);
+        }
+        $data = array(
+            'nama'=>$request->nama,
+            'email'=>$request->email,
+            'no_hp'=>$request->no_hp,
+            'alamat'=>$request->alamat,
+        );
+    User::whereusername($id)->update($data);
+    return redirect('pegawai\profile-pegawai');
     }
 
     /**

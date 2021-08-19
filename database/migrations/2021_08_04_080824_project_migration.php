@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class PotonganMigration extends Migration
+class ProjectMigration extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class PotonganMigration extends Migration
      */
     public function up()
     {
-        Schema::create('potongans', function (Blueprint $table) {
-            $table->Increments('id_kasbon');
+        Schema::create('projects', function (Blueprint $table) {
+            $table->Increments('id_project');
             $table->string('username')->index();
             $table->foreign('username')->references('username')->on('users');
-            $table->string('nominal');
-            $table->string('keterangan');
+            $table->string('nama_project');
+            $table->date('tgl_mulai');
+            $table->date('tgl_deadline');
+            $table->integer('presentase');
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ class PotonganMigration extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('potongans');
+        Schema::dropIfExists('projects');
     }
 }

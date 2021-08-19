@@ -67,6 +67,13 @@
                       <li><a href="{{URL('admin/magang')}}">Magang</a></li>
                     </ul>
                   </li>
+                  <li><a><i class="fa fa-laptop"></i> Project <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{URL('admin/project-list')}}">All Project</a></li>
+                      <li><a href="{{URL('admin/project-progres')}}">Progress Project</a></li>
+                      <li><a href="{{URL('admin/project-selesai')}}">Done Project</a></li>
+                    </ul>
+                  </li>
                   <li><a><i class="fa fa-money"></i> Gaji <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{URL('admin/gajipokok')}}">Gaji Pokok</a></li>
@@ -86,12 +93,28 @@
                   </li>
                   <li><a><i class="fa fa-clock-o"></i> Pengajuan <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Pengajuan Cuti</a></li>
-                      <li><a href="#">Pengajuan Pinjaman</a></li>
+                      <li><a href="{{URL('admin/cuti')}}">Pengajuan Cuti</a></li>
+                      <li><a href="{{URL('admin/pinjaman')}}">Pengajuan Pinjaman</a></li>
                     </ul>
                   </li>
+
+                  <li><a><i class="fa fa-desktop"></i> Pekerjaan <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{URL('admin/lowongan')}}">Lowongan Pekerjaan</a></li>
+                      <li><a href="{{URL('admin/lamaran')}}">Lamaran Pekerjaan</a></li>
+                    </ul>
+                  </li>
+
+                  <li><a><i class="fa fa-bar-chart-o"></i> Penilaian Kinerja Karyawan <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{URL('/')}}">Penilaian Kerja</a></li>
+                     
+                    </ul>
+                  </li>
+
                   </ul>
               </div>
+
 
             </div>
             <!-- /sidebar menu -->

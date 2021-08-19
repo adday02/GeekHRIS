@@ -13,17 +13,19 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
+       
         Schema::create('users', function (Blueprint $table) {
             $table->string('username')->primary();
             $table->string('password');
             $table->string('nama');
             $table->string('email');
-            $table->string('jabatan');
-            $table->date('tanggal_lahir');
+            $table->integer('id_gaji_pokok')->unsigned();
+            $table->foreign('id_gaji_pokok')->references('id_gaji_pokok')->on('gaji_pokoks');            $table->date('tanggal_lahir');
             $table->string('jenis_kelamin');
             $table->string('alamat');
             $table->string('agama');
             $table->string('no_hp');
+            $table->string('divisi');
             $table->string('foto');
             $table->string('status');
             $table->timestamps();
@@ -40,3 +42,7 @@ class CreateUsersTable extends Migration
         Schema::dropIfExists('users');
     }
 }
+
+
+   
+

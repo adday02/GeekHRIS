@@ -11,7 +11,7 @@ class Lembur extends Model
     protected $primaryKey = 'id_lembur';
     protected $fillable = [ 'id_lembur', 'username','tanggal', 'nominal'];
     public $timestamps = false;
-    
+    protected $keyType = 'integer';
     
     public function user()
     {

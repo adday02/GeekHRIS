@@ -31,16 +31,16 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($gajipokok as $p)
+                    @foreach($gaji_pokoks as $p)
                     <tr>
                         <td>{{++$i}}</td>
                         <td>{{$p->jabatan}}</td>
                         <td>{{$p->nominal}}</td>
                         <td>
-                        <button type="danger" class="btn btn-info btn-sm" data-toggle="modal" data-target="#detail{{$p->id_gajipokok}}" ><i class="fa fa-search"></i> Detail</button>
-                        <button type="danger" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#edit{{$p->id_gajipokok}}" ><i class="fa fa-pencil"></i> Ubah</button>
+                        <button type="danger" class="btn btn-info btn-sm" data-toggle="modal" data-target="#detail{{$p->id_gaji_pokok}}" ><i class="fa fa-search"></i> Detail</button>
+                        <button type="danger" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#edit{{$p->id_gaji_pokok}}" ><i class="fa fa-pencil"></i> Ubah</button>
                         <div style="float:right;">
-                                <form form action="{{route('gajipokok.destroy', $p->id_gajipokok)}}" method="POST">
+                                <form form action="{{route('gajipokok.destroy', $p->id_gaji_pokok)}}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-remove"></i> Hapus</a>
@@ -106,8 +106,8 @@
     </div>
 
     <!-- Modal Edit -->
-    @foreach ($gajipokok as $p)
-    <div class="modal fade" id="edit{{$p->id_gajipokok}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    @foreach ($gaji_pokoks as $p)
+    <div class="modal fade" id="edit{{$p->id_gaji_pokok}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
@@ -117,7 +117,7 @@
                 </button>
             </div>
             <div class="modal-body">
-            <form class="form-horizontal form-label-left input_mask" action="{{route('gajipokok.update', $p->id_gajipokok)}}" method="POST" enctype="multipart/form-data">
+            <form class="form-horizontal form-label-left input_mask" action="{{route('gajipokok.update', $p->id_gaji_pokok)}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
                 <div class="form-group">

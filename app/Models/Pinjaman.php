@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tunjangan extends Model
+class Pinjaman extends Model
 {
-    protected $table='tunjangans';
-    protected $primaryKey = 'id_tunjangan';
-    protected $fillable = [ 'id_tunjangan', 'username','jenis', 'nominal'];
+    protected $table='pinjamans';
+    protected $primaryKey = 'id_pinjaman';
+    protected $fillable = ['id_pinjaman', 'username','tanggal','nominal', 'keterangan','status'];
     public $timestamps = false;
     protected $keyType = 'integer';
 

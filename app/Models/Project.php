@@ -5,11 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tunjangan extends Model
+class Project extends Model
 {
-    protected $table='tunjangans';
-    protected $primaryKey = 'id_tunjangan';
-    protected $fillable = [ 'id_tunjangan', 'username','jenis', 'nominal'];
+    //use HasFactory;
+
+    protected $table='projects';
+    protected $primaryKey = 'id_project';
+    protected $fillable = [ 'id_project', 'username','nama_project', 'tgl_mulai', 'tgl_deadline','presentase'];
     public $timestamps = false;
     protected $keyType = 'integer';
 
@@ -17,4 +19,5 @@ class Tunjangan extends Model
     {
 	return $this->belongsTo('App\Models\User','username');
     }
+
 }
