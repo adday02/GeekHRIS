@@ -20,9 +20,6 @@ class LamaranMigration extends Migration
             $table->date('tanggal');
             $table->string('file');
             $table->string('status');
-
-            
-            
             $table->timestamps();
         });
     }

@@ -11,7 +11,7 @@ class Project extends Model
 
     protected $table='projects';
     protected $primaryKey = 'id_project';
-    protected $fillable = [ 'id_project', 'username',  'anggota','nama_project', 'tgl_mulai', 'tgl_deadline','preentase'];
+    protected $fillable = [ 'id_project', 'username','nama_project', 'tgl_mulai', 'tgl_deadline','presentase'];
     public $timestamps = false;
     protected $keyType = 'integer';
 
@@ -19,4 +19,5 @@ class Project extends Model
     {
 	return $this->belongsTo('App\Models\User','username');
     }
+
 }

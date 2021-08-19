@@ -67,6 +67,13 @@
                       <li><a href="{{URL('admin/magang')}}">Magang</a></li>
                     </ul>
                   </li>
+                  <li><a><i class="fa fa-laptop"></i> Project <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{URL('admin/project-list')}}">All Project</a></li>
+                      <li><a href="{{URL('admin/project-progres')}}">Progress Project</a></li>
+                      <li><a href="{{URL('admin/project-selesai')}}">Done Project</a></li>
+                    </ul>
+                  </li>
                   <li><a><i class="fa fa-money"></i> Gaji <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="#">Gaji Pokok</a></li>

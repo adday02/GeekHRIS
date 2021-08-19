@@ -27,6 +27,7 @@
                         <th>No</th>
                         <th>Nama</th>
                         <th>Jabatan</th>
+                        <th>PIC</th>
                         <th>Email</th>
                         <th>No HP</th>
                         <th width="22.5%">Aksi</th>
@@ -38,6 +39,7 @@
                         <td>{{++$i}}</td>
                         <td>{{$p->nama}}</td>
                         <td>{{$p->GajiPokok->jabatan}}</td>
+                        <td>{{$p->pic}}</td>
                         <td>{{$p->email}}</td>
                         <td>{{$p->no_hp}}</td>
                         <td>
@@ -94,6 +96,7 @@
                         <input type="text" class="form-control" placeholder="Masukkan Nama Lengkap" name="nama" required>
                     </div>
                 </div>
+
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Email</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
@@ -102,18 +105,18 @@
                 </div>
 
                 <div class="form-group row">
- 				<label for="id_muthowwif" class="col-sm-2 col-form-label">Gaji Pokok</label>
-                	<div class="col-sm-5">
-                    	<select name="id_gaji_pokok" id="id_gaji_pokok" class="form-control">
-                			<option value="">== Pilih GajiPokok ==</option>
-                			@foreach ($gaji_pokoks as $p)
-                    		<option value="{{ $p->id_gaji_pokok }}">{{ $p->jabatan }}</option>
-                			@endforeach
-                 		</select>
-                 	</div>
-            </div>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Gaji Pokok</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <select name="id_gaji_pokok" class="form-control">
+                            <option value="">== Pilih GajiPokok ==</option>
+                            @foreach ($gaji_pokoks as $p)
+                            <option value="{{ $p->id_gaji_pokok }}">{{ $p->jabatan }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    </div>
 
-            <div class="form-group">
+                <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Tanggal Lahir</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
                         <input type="date" class="form-control" value="2000-01-01" name="tanggal_lahir" required>
@@ -171,25 +174,15 @@
                         <option>Back End</option>
                         <option>Desain UI/UX</option>
                         <option>QA/QC</option>
-                        
                     </select>
                     </div>
                 </div>
-
-               
-                
-
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">PIC</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
                         <input type="text" class="form-control" placeholder="Masukan PIC" name="pic" required>
                     </div>
                 </div>
-
-                
-
-                
-
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Foto</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
@@ -348,9 +341,15 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Jabatan</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" value="{{$p->GajiPokok->jabatan}}" name="email" readonly>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Gaji Pokok</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" value="{{$p->id_gaji_pokok}}" name="email" readonly>
+                        <input type="text" class="form-control" value="{{$p->GajiPokok->nominal}}" name="email" readonly>
                     </div>
                 </div>
                 <div class="form-group">

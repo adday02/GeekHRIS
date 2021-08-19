@@ -17,12 +17,10 @@ class ProjectMigration extends Migration
             $table->Increments('id_project');
             $table->string('username')->index();
             $table->foreign('username')->references('username')->on('users');
-            $table->string('anggota');
             $table->string('nama_project');
             $table->date('tgl_mulai');
             $table->date('tgl_deadline');
             $table->integer('presentase');
-            
             $table->timestamps();
         });
     }
