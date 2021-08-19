@@ -14,7 +14,7 @@ use App\Http\Controllers\AdminTunjanganController;
 use App\Http\Controllers\Admin_CutiController;
 use App\Http\Controllers\Admin_PinjamanController;
 use App\Http\Controllers\AdminProjectListController;
-
+use App\Http\Controllers\Admin_LowonganController;
 
 
 /*
@@ -42,11 +42,15 @@ Route::group(['prefix'=> 'admin', 'middleware'=> 'auth:admin'], function()
     Route::resource('project-list',AdminProjectListController::class);
     Route::get('project-progres',[AdminProjectListController::class,'progres']);
     Route::get('project-selesai',[AdminProjectListController::class,'selesai']);
+    Route::resource('lowongan',Admin_LowonganController::class);
 });
+
 Route::group(['prefix'=> 'pegawai', 'middleware'=> 'auth:pegawai'], function()
 {
     Route::resource('profile-pegawai',Pegawai_ProfileController::class);
     Route::resource('pinjaman-pegawai',Pegawai_PinjamanController::class);
+    Route::resource('cuti-pegawai',Pegawai_penCutiController::class);
+    Route::resource('profile-pegawai',Pegawai_profileController::class);  
 });
 
 //HALAMAN LOGIN
@@ -56,22 +60,3 @@ Route::get('/', function () {
 Route::post('/kirimdata',[LoginController::class,'masuk'])->name('login');;
 Route::get('/keluar',[LoginController::class,'keluar']);
 //END HALAMAN LOGIN
-
-Route::get('/dashboard', function () {
-    return view('Admin.dashboard');
-});
-Route::get('/recruitment', function () {
-    return view('Admin.recruitment');
-});
-Route::get('/magang', function () {
-    return view('Admin.magang');
-});
-
-
-Route::group(['prefix'=> 'pegawai'], function()
-{
-    Route::resource('cuti-pegawai',Pegawai_penCutiController::class);
-    Route::resource('profile-pegawai',Pegawai_profileController::class);
-
-    
-});
