@@ -16,7 +16,7 @@ class Admin_absenController extends Controller
     public function index()
     {
         $absens = Absen::all();
-        $users = User::all();
+        $users = User::where('status','Pegawai')->get();
         return view('Admin/absen',compact('absens','users'))->with('i');
     
     }
@@ -39,13 +39,16 @@ class Admin_absenController extends Controller
      */
     public function store(Request $request)
     {
-        $data = array(
-            'username'=>$request->username,
-            'status'=>$request->status,
-            'tanggal'=>date('y-m-d'),
-        );
-        Absen::create($data);
-        return redirect('admin\absen')->with('success','Absen berhasil ditambah');
+        if(!empty($request->input('status')))
+        $will_insert = [];
+        $no=0;
+        foreach($request->input('status',) as $key =>$value){
+            array_push($will_insert,['status'=>$value,'username'=>$request->username[$no],'tanggal'=>$request->tanggal]);
+        $no++;
+        }
+        \DB::table('absens')->insert($will_insert);
+        return redirect('admin\absen')->with('success','Absen Berhasil Ditambah');
+
     }
 
     /**
