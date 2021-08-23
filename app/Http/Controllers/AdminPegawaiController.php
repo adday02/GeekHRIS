@@ -15,10 +15,20 @@ class AdminPegawaiController extends Controller
      */
     public function index()
     {
-        $pegawai = User::where('status','Pegawai')->get();
-        return view('admin/pegawai',compact('pegawai'))->with('i');
+        $user = User::where('status','Pegawai')->get();
+        return view('admin/pegawai',compact('user'))->with('i');
     }
-
+    public function indexRecruitment()
+    {
+        $user = User::where('status','Recruitment')->get();
+        return view('admin/recruitment',compact('user'))->with('i');
+    }
+    public function indexMagang()
+    {
+        $user = User::where('status','Magang')->get();
+        return view('admin/magang',compact('user'))->with('i');
+    }
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -57,38 +67,15 @@ class AdminPegawaiController extends Controller
             'status'=>$request->status,
         );
         User::create($data);
+        if($request->status=="Pegawai"){
         return redirect('admin\pegawai')->with('success','Pegawai berhasil ditambah');
+        }elseif($request->status=="Recruitment"){
+            return redirect('admin\recruitment')->with('success','Pegawai berhasil ditambah');
+        }elseif($request->status=="Magang"){
+            return redirect('admin\magang')->with('success','Pegawai berhasil ditambah');
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $foto = $request->file('foto');
@@ -109,22 +96,30 @@ class AdminPegawaiController extends Controller
             );
             User::whereusername($id)->update($data);
         }
-        if($request->has('id_gaji_pokok'))
+        if($request->has('divisi'))
         {
             $data = array(
-                'id_gaji_pokok'=>$request->agama,
+                'divisi'=>$request->divisi,
             );
             User::whereusername($id)->update($data);
         }
         $data = array(
             'nama'=>$request->nama,
             'email'=>$request->email,
-            'no_hp'=>$request->no_hp,
+            'nominal'=>$request->nominal,
             'alamat'=>$request->alamat,
+            'no_hp'=>$request->no_hp,
+            'pic'=>$request->pic,
+            'status'=>$request->status,
         );
     User::whereusername($id)->update($data);
-    return redirect('admin\pegawai');
-
+        if($request->status=="Pegawai"){
+            return redirect('admin\pegawai');
+        }elseif($request->status=="Recruitment"){
+            return redirect('admin\recruitment');
+        }elseif($request->status=="Magang"){
+            return redirect('admin\magang');
+        }
     }
 
     /**
@@ -137,8 +132,15 @@ class AdminPegawaiController extends Controller
     {
         try{
             $datas = User::findOrfail($id);
+            $status=$datas->status;
             $datas->delete();
-            return redirect('admin\pegawai')->with('success','pegawai Berhasil Dihapus');
+            if($status=="Pegawai"){
+                return redirect('admin\pegawai')->with('success','pegawai Berhasil Dihapus');
+            }elseif($status=="Recruitment"){
+                return redirect('admin\recruitment')->with('success','pegawai Berhasil Dihapus');
+            }elseif($status=="Magang"){
+                return redirect('admin\magang')->with('success','pegawai Berhasil Dihapus');
+            }
         }catch(\Throwable $th){
             return redirect('admin\pegawai')->withErrors('Data gagal dihapus. Harap hapus data yang terkait');
         }

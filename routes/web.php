@@ -32,10 +32,12 @@ use App\Http\Controllers\Admin_lamaranController;
 Route::group(['prefix'=> 'admin'], function()
 {
     Route::resource('dashboard',AdminDashboardController::class);
+    
     Route::resource('pegawai',AdminPegawaiController::class);
+    Route::get('recruitment',[AdminPegawaiController::class,'indexRecruitment']);
+    Route::get('magang',[AdminPegawaiController::class,'indexMagang']);
+
     Route::resource('absen',Admin_absenController::class);
-    Route::resource('recruitment',AdminRecruitmentController::class);
-    Route::resource('magang',AdminMagangController::class);
     Route::resource('tunjangan',AdminTunjanganController::class);
     Route::resource('cuti',Admin_CutiController::class);
     Route::resource('pinjaman',Admin_PinjamanController::class);
