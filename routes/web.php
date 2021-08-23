@@ -16,7 +16,7 @@ use App\Http\Controllers\Admin_PinjamanController;
 use App\Http\Controllers\AdminProjectListController;
 use App\Http\Controllers\AdminPenilaianController;
 use App\Http\Controllers\Admin_LowonganController;
-
+use App\Http\Controllers\Admin_lamaranController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +44,7 @@ Route::group(['prefix'=> 'admin'], function()
     Route::get('project-selesai',[AdminProjectListController::class,'selesai']);
     Route::resource('penilaian',AdminPenilaianController::class);
     Route::resource('lowongan',Admin_LowonganController::class);
+    Route::resource('lamaran',Admin_lamaranController::class);
 });
 
 Route::group(['prefix'=> 'pegawai', 'middleware'=> 'auth:pegawai'], function()
@@ -61,4 +62,3 @@ Route::get('/', function () {
 Route::post('/kirimdata',[LoginController::class,'masuk'])->name('login');;
 Route::get('/keluar',[LoginController::class,'keluar']);
 //END HALAMAN LOGIN
-
