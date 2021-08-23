@@ -38,7 +38,6 @@
                     <tr>
                         <td>{{++$i}}</td>
                         <td>{{$p->nama}}</td>
-                        <td>{{$p->GajiPokok->jabatan}}</td>
                         <td>{{$p->pic}}</td>
                         <td>{{$p->email}}</td>
                         <td>{{$p->no_hp}}</td>
@@ -103,18 +102,6 @@
                         <input type="email" class="form-control" placeholder="Masukkan Email" name="email" required>
                     </div>
                 </div>
-
-                <div class="form-group row">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Gaji Pokok</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                        <select name="id_gaji_pokok" class="form-control">
-                            <option value="">== Pilih GajiPokok ==</option>
-                            @foreach ($gaji_pokoks as $p)
-                            <option value="{{ $p->id_gaji_pokok }}">{{ $p->jabatan }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    </div>
 
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Tanggal Lahir</label>
@@ -238,17 +225,7 @@
                         <input type="email" class="form-control" value="{{$p->email}}" name="email" required>
                     </div>
                 </div>
-                <div class="form-group row">
- 				<label for="id_muthowwif" class="col-sm-2 col-form-label">Gaji Pokok</label>
-                	<div class="col-sm-5">
-                    	<select name="id_gaji_pokok" id="id_gaji_pokok" class="form-control">
-                			<option value="">== Pilih GajiPokok ==</option>
-                			@foreach ($gaji_pokoks as $p)
-                    		<option value="{{ $p->id_gaji_pokok }}">{{ $p->jabatan }}</option>
-                			@endforeach
-                 		</select>
-                 	</div>
-            </div>
+
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">No HP</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
@@ -340,18 +317,7 @@
                         <input type="email" class="form-control" value="{{$p->email}}" name="email" readonly>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Jabatan</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" value="{{$p->GajiPokok->jabatan}}" name="email" readonly>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Gaji Pokok</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" value="{{$p->GajiPokok->nominal}}" name="email" readonly>
-                    </div>
-                </div>
+              
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">No HP</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\GajiPokok;
 use Illuminate\Support\Facades\Crypt;
 
 class AdminPegawaiController extends Controller
@@ -17,8 +16,7 @@ class AdminPegawaiController extends Controller
     public function index()
     {
         $pegawai = User::where('status','Pegawai')->get();
-        $gaji_pokoks = GajiPokok::all();
-        return view('admin/pegawai',compact('pegawai','gaji_pokoks'))->with('i');
+        return view('admin/pegawai',compact('pegawai'))->with('i');
     }
 
     /**

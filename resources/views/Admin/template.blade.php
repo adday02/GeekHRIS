@@ -67,6 +67,11 @@
                       <li><a href="{{URL('admin/magang')}}">Magang</a></li>
                     </ul>
                   </li>
+                  <li><a><i class="fa fa-bar-chart"></i> Penilaian <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{URL('admin/penilaian')}}">Penilaian Pegawai</a></li>
+                    </ul>
+                  </li>
                   <li><a><i class="fa fa-laptop"></i> Project <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{URL('admin/project-list')}}">All Project</a></li>
@@ -104,10 +109,6 @@
                       <li><a href="{{URL('admin/lamaran')}}">Lamaran Pekerjaan</a></li>
                     </ul>
                   </li>
-
-                  <li><a><i class="fa fa-bar-chart-o"></i> Penilaian Kinerja Karyawan <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="{{URL('/')}}">Penilaian Kerja</a></li>
                      
                     </ul>
                   </li>
