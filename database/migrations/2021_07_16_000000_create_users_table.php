@@ -19,13 +19,14 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('nama');
             $table->string('email');
-            $table->integer('id_gaji_pokok')->unsigned();
-            $table->foreign('id_gaji_pokok')->references('id_gaji_pokok')->on('gaji_pokoks');            $table->date('tanggal_lahir');
+            $table->integer('nominal')->nullable();         
+            $table->date('tanggal_lahir');
             $table->string('jenis_kelamin');
             $table->string('alamat');
             $table->string('agama');
             $table->string('no_hp');
-            $table->string('divisi');
+            $table->string('divisi')->nullable();
+            $table->string('pic')->nullable();
             $table->string('foto');
             $table->string('status');
             $table->timestamps();

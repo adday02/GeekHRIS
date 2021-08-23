@@ -14,8 +14,14 @@ class CreateDisiplinsTable extends Migration
     public function up()
     {
         Schema::create('disiplins', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->Increments('id_disiplin');
+            $table->string('username')->index();
+            $table->foreign('username')->references('username')->on('users');
+            $table->string('penilai');
+            $table->string('tahun');
+            $table->string('semester');
+            $table->string('kerja');
+            $table->time('waktu');
         });
     }
 

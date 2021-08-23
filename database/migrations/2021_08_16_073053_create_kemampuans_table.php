@@ -14,8 +14,17 @@ class CreateKemampuansTable extends Migration
     public function up()
     {
         Schema::create('kemampuans', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->Increments('id_kemampuan');
+            $table->string('username')->index();
+            $table->foreign('username')->references('username')->on('users');
+            $table->string('penilai');
+            $table->string('tahun');
+            $table->string('komunikatif');
+            $table->string('tugas');
+            $table->string('tekanan');
+            $table->string('kemampuan_kerjaan');
+            $table->string('bahasa');
+            $table->string('kreatif');
         });
     }
 

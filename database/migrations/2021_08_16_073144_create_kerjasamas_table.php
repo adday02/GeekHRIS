@@ -14,8 +14,15 @@ class CreateKerjasamasTable extends Migration
     public function up()
     {
         Schema::create('kerjasamas', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->Increments('id_kerjasama');
+            $table->string('username')->index();
+            $table->foreign('username')->references('username')->on('users');
+            $table->string('penilai');
+            $table->string('tahun');
+            $table->string('semester');
+            $table->string('menisi_partner');
+            $table->string('koordinasi');
+            $table->string('empati');        
         });
     }
 

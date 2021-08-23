@@ -17,6 +17,8 @@ class LamaranMigration extends Migration
             $table->Increments('id_lamaran');
             $table->integer('id_lowongan')->unsigned();
             $table->foreign('id_lowongan')->references('id_lowongan')->on('lowongans');
+            $table->string('username')->index();
+            $table->foreign('username')->references('username')->on('users');
             $table->date('tanggal');
             $table->string('file');
             $table->string('status');
