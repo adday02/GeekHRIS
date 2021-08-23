@@ -26,7 +26,7 @@
                     <tr>
                         <th>No</th>
                         <th>Nama</th>
-                        <th>Jabatan</th>
+                        <th>Divisi</th>
                         <th>PIC</th>
                         <th>Email</th>
                         <th>No HP</th>
@@ -38,6 +38,7 @@
                     <tr>
                         <td>{{++$i}}</td>
                         <td>{{$p->nama}}</td>
+                        <td>{{$p->divisi}}</td>
                         <td>{{$p->pic}}</td>
                         <td>{{$p->email}}</td>
                         <td>{{$p->no_hp}}</td>
@@ -102,6 +103,12 @@
                         <input type="email" class="form-control" placeholder="Masukkan Email" name="email" required>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Gaji</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" placeholder="Masukkan Gaji Pegawai" name="nominal">
+                    </div>
+                </div>
 
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Tanggal Lahir</label>
@@ -117,7 +124,6 @@
                         <option disabled="" selected="" value="">Pilih Jenis Kelamin</option>
                         <option>Laki-Laki</option>
                         <option>Perempuan</option>
-
                     </select>
                     </div>
                 </div>
@@ -154,20 +160,20 @@
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Divisi</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                    <select class="form-control" name="divisi" required>
+                    <select class="form-control" name="divisi">
                         <option disabled="" selected="" value="">Pilih Divisi</option>
                         <option>Teknis</option>
-                        <option>Front End</option>
-                        <option>Back End</option>
+                        <option>Web Development</option>
+                        <option>Mobile Development</option>
                         <option>Desain UI/UX</option>
-                        <option>QA/QC</option>
+                        <option>Marketing</option>
                     </select>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">PIC</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="Masukan PIC" name="pic" required>
+                        <input type="text" class="form-control" placeholder="Masukan PIC" name="pic">
                     </div>
                 </div>
                 <div class="form-group">
@@ -176,6 +182,7 @@
                         <input type="file" class="form-control" placeholder="Default Input" name="foto" required>
                     </div>
                 </div>
+                <input type="hidden" value="Pegawai" name="status" required>
 
                 <div class="ln_solid"></div>
 

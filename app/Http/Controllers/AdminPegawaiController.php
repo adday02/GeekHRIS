@@ -45,17 +45,16 @@ class AdminPegawaiController extends Controller
             'password'=>Crypt::encryptString($request->password),
             'nama'=>$request->nama,
             'email'=>$request->email,
-            'id_gaji_pokok'=>$request->id_gaji_pokok,
+            'nominal'=>$request->nominal,
             'tanggal_lahir'=>$request->tanggal_lahir,
             'jenis_kelamin'=>$request->jenis_kelamin,
             'alamat'=>$request->alamat,
             'agama'=>$request->agama,
             'no_hp'=>$request->no_hp,
             'divisi'=>$request->divisi,
-            'jabatan'=>$request->jabatan,
-            'nominal'=>$request->nominal,
+            'pic'=>$request->pic,
             'foto'=>$new_name,
-            'status'=>"Pegawai"
+            'status'=>$request->status,
         );
         User::create($data);
         return redirect('admin\pegawai')->with('success','Pegawai berhasil ditambah');
