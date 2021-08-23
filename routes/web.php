@@ -4,26 +4,19 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminPegawaiController;
-<<<<<<< HEAD
-=======
 use App\Http\Controllers\Admin_absenController;
 use App\Http\Controllers\Pegawai_profileController;
 use App\Http\Controllers\Pegawai_penCutiController;
->>>>>>> f562d80192c276260c328e54259c589a8d5f8de5
 use App\Http\Controllers\AdminRecruitmentController;
 use App\Http\Controllers\AdminMagangController;
 use App\Http\Controllers\AdminGajiPokokController;
 use App\Http\Controllers\AdminTunjanganController;
-<<<<<<< HEAD
-use App\Http\Controllers\AdminLemburController;
-use App\Http\Controllers\Pegawai_ProfileController;
-=======
 use App\Http\Controllers\Admin_CutiController;
 use App\Http\Controllers\Admin_PinjamanController;
 use App\Http\Controllers\AdminProjectListController;
 use App\Http\Controllers\Admin_LowonganController;
+use App\Http\Controllers\Admin_lamaranController;
 
->>>>>>> f562d80192c276260c328e54259c589a8d5f8de5
 
 /*
 |--------------------------------------------------------------------------
@@ -36,18 +29,6 @@ use App\Http\Controllers\Admin_LowonganController;
 |
 */
 
-<<<<<<< HEAD
-Route::group(['prefix'=> 'admin'], function()
-{
-    Route::resource('dashboard',AdminDashboardController::class);
-    Route::resource('pegawai',AdminPegawaiController::class);
-    Route::resource('recruitment',AdminRecruitmentController::class);
-    Route::resource('magang',AdminMagangController::class);
-    Route::resource('gajipokok',AdminGajiPokokController::class);
-    Route::resource('gajilembur',AdminLemburController::class);
-    Route::resource('gajitunjangan',AdminTunjanganController::class);
-
-=======
 Route::group(['prefix'=> 'admin', 'middleware'=> 'auth:admin'], function()
 {
     Route::resource('dashboard',AdminDashboardController::class);
@@ -63,18 +44,15 @@ Route::group(['prefix'=> 'admin', 'middleware'=> 'auth:admin'], function()
     Route::get('project-progres',[AdminProjectListController::class,'progres']);
     Route::get('project-selesai',[AdminProjectListController::class,'selesai']);
     Route::resource('lowongan',Admin_LowonganController::class);
->>>>>>> f562d80192c276260c328e54259c589a8d5f8de5
+    Route::resource('lamaran',Admin_lamaranController::class);
 });
 
 Route::group(['prefix'=> 'pegawai', 'middleware'=> 'auth:pegawai'], function()
 {
     Route::resource('profile-pegawai',Pegawai_ProfileController::class);
-<<<<<<< HEAD
-=======
     Route::resource('pinjaman-pegawai',Pegawai_PinjamanController::class);
     Route::resource('cuti-pegawai',Pegawai_penCutiController::class);
     Route::resource('profile-pegawai',Pegawai_profileController::class);  
->>>>>>> f562d80192c276260c328e54259c589a8d5f8de5
 });
 
 //HALAMAN LOGIN
@@ -84,7 +62,3 @@ Route::get('/', function () {
 Route::post('/kirimdata',[LoginController::class,'masuk'])->name('login');;
 Route::get('/keluar',[LoginController::class,'keluar']);
 //END HALAMAN LOGIN
-<<<<<<< HEAD
-
-=======
->>>>>>> f562d80192c276260c328e54259c589a8d5f8de5

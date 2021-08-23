@@ -38,7 +38,7 @@
                     <tr>
                         <td>{{++$i}}</td>
                         <td>{{$p->nama}}</td>
-                        <td>{{$p->GajiPokok->jabatan}}</td>
+                        <td>{{$p->jabatan}}</td>
                         <td>{{$p->pic}}</td>
                         <td>{{$p->email}}</td>
                         <td>{{$p->no_hp}}</td>
@@ -110,7 +110,7 @@
                         <select name="id_gaji_pokok" class="form-control">
                             <option value="">== Pilih GajiPokok ==</option>
                             @foreach ($gaji_pokoks as $p)
-                            <option value="{{ $p->id_gaji_pokok }}">{{ $p->jabatan }}</option>
+                            <option value="{{ $p->id_gaji_pokok }}">{{ $p->id_gaji_pokok }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -189,6 +189,25 @@
                         <input type="file" class="form-control" placeholder="Default Input" name="foto" required>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Jabatan</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                    <select class="form-control" name="jabatan" required>
+                        <option disabled="" selected="" value="">Pilih Jabatan</option>
+                        <option>Marketing</option>
+                        <option>Project Manager</option>
+                        <option>Analisis</option>
+                        <option>Desain</option>
+                        <option>Tester</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">nominal</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" placeholder="Default Input" name="nominal" required>
+                    </div>
+                </div>
 
                 <div class="ln_solid"></div>
 
@@ -244,7 +263,7 @@
                     	<select name="id_gaji_pokok" id="id_gaji_pokok" class="form-control">
                 			<option value="">== Pilih GajiPokok ==</option>
                 			@foreach ($gaji_pokoks as $p)
-                    		<option value="{{ $p->id_gaji_pokok }}">{{ $p->jabatan }}</option>
+                    		<option value="{{ $p->id_gaji_pokok }}">{{ $p->id_gaji_pokok }}</option>
                 			@endforeach
                  		</select>
                  	</div>
@@ -288,6 +307,28 @@
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Foto</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
                         <input type="file" class="form-control" placeholder="Default Input" name="foto">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Jabatan</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                    <select class="form-control" name="divisi" required>
+                        <option disabled="" selected="" value="">Pilih Jabatan</option>
+                        <option>Marketing</option>
+                        <option>Project Manager</option>
+                        <option>Analisis</option>
+                        <option>Desain</option>
+                        <option>Tester</option>
+                    </select>
+                    </div>
+                </div>
+                
+
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Nominal</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" placeholder="Default Input" value="{{$p->nominal}}" name="nominal">
                     </div>
                 </div>
 

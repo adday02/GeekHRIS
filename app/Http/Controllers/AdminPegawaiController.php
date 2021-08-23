@@ -54,6 +54,8 @@ class AdminPegawaiController extends Controller
             'agama'=>$request->agama,
             'no_hp'=>$request->no_hp,
             'divisi'=>$request->divisi,
+            'jabatan'=>$request->jabatan,
+            'nominal'=>$request->nominal,
             'foto'=>$new_name,
             'status'=>"Pegawai"
         );

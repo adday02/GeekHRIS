@@ -6,7 +6,7 @@
         <div class="">
         <div class="page-title">
             <div class="title_left">
-            <h3>Tabel Absen</h3>
+            <h3>Tabel Lamaran Pekerjaan</h3>
             </div>
             <div class="title_right">
             </div>
@@ -38,7 +38,7 @@
                     <tr>
                         <td>{{++$i}}</td>
                         <td>{{$lamaran->Lowongan->nama_lowongan}}</td>
-                        <td>{{$lamaran->username}}</td>
+                        <td>{{$lamaran->User->nama}}</td>
                         <td>{{$lamaran->tanggal}}</td>
 
                         <td>{{$lamaran->status}}</td>
@@ -99,7 +99,7 @@
                 <div class="row form-group">
                     <label class="col-sm-4 control-label">Nama Recruitment</label>
                     <div class="col-sm-8">        
-                        <input type="text"  class="form-control" value="{{ $lamaran->username}}" required="required" readonly>
+                        <input type="text"  class="form-control" value="{{ $lamaran->User->nama}}" required="required" readonly>
                     </div>
                     @error('username')
             <div class="invalid-feedback">{{ $message }}</div>
@@ -158,7 +158,7 @@
                 <div class="row form-group">
                     <label class="col-sm-4 control-label">Nama Recruitment</label>
                     <div class="col-sm-8">        
-                        <input type="text"  class="form-control" value="{{ $lamaran->username}}" readonly>
+                        <input type="text"  class="form-control" value="{{ $lamaran->User->nama}}" readonly>
                     </div>
                 </div>
                
