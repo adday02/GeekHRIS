@@ -9,7 +9,7 @@ class Disiplin extends Model
 {
     protected $table='disiplins';
     protected $primaryKey = 'id_disiplin';
-    protected $fillable = [ 'id_disiplin', 'username','penilai','tahun','kerja','waktu'];
+    protected $fillable = [ 'id_disiplin', 'id_performance','penilain','dinilai','kerja','waktu'];
     public $timestamps = false;
     protected $keyType = 'integer';
     

@@ -17,6 +17,7 @@ use App\Http\Controllers\AdminProjectListController;
 use App\Http\Controllers\AdminPenilaianController;
 use App\Http\Controllers\Admin_LowonganController;
 use App\Http\Controllers\Admin_lamaranController;
+use App\Http\Controllers\AdminSemesterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,7 @@ use App\Http\Controllers\Admin_lamaranController;
 |
 */
 
-Route::group(['prefix'=> 'admin'], function()
+Route::group(['prefix'=> 'admin', 'middleware'=> 'auth:admin'], function()
 {
     Route::resource('dashboard',AdminDashboardController::class);
     
@@ -44,7 +45,16 @@ Route::group(['prefix'=> 'admin'], function()
     Route::resource('project-list',AdminProjectListController::class);
     Route::get('project-progres',[AdminProjectListController::class,'progres']);
     Route::get('project-selesai',[AdminProjectListController::class,'selesai']);
-    Route::resource('penilaian',AdminPenilaianController::class);
+
+    
+    Route::get('penilaian',[AdminSemesterController::class,'index']);
+    Route::get('penilaian/tahun={id}&&semester={sm}',[AdminSemesterController::class,'pegawai']);
+    Route::get('penilaian/tahun={id}&&semester={sm}/{us}',[AdminSemesterController::class,'nilai']);
+    Route::get('penilaian/tahun={id}&&semester={sm}/ceknilai/{us}',[AdminSemesterController::class,'cekNilai']);
+    Route::post('inputPenilaian',[AdminSemesterController::class,'tambah'])->name('inputPenilaian');
+    Route::resource('penilaian',AdminSemesterController::class);
+
+
     Route::resource('lowongan',Admin_LowonganController::class);
     Route::resource('lamaran',Admin_lamaranController::class);
 });

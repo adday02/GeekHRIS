@@ -15,11 +15,10 @@ class CreateKerjasamasTable extends Migration
     {
         Schema::create('kerjasamas', function (Blueprint $table) {
             $table->Increments('id_kerjasama');
-            $table->string('username')->index();
-            $table->foreign('username')->references('username')->on('users');
-            $table->string('penilai');
-            $table->string('tahun');
-            $table->string('semester');
+            $table->integer('id_performance')->unsigned();
+            $table->foreign('id_performance')->references('id_performance')->on('performances');
+            $table->string('penilain');
+            $table->string('dinilai');
             $table->string('menisi_partner');
             $table->string('koordinasi');
             $table->string('empati');        

@@ -15,10 +15,10 @@ class CreateKemampuansTable extends Migration
     {
         Schema::create('kemampuans', function (Blueprint $table) {
             $table->Increments('id_kemampuan');
-            $table->string('username')->index();
-            $table->foreign('username')->references('username')->on('users');
-            $table->string('penilai');
-            $table->string('tahun');
+            $table->integer('id_performance')->unsigned();
+            $table->foreign('id_performance')->references('id_performance')->on('performances');
+            $table->string('penilain');
+            $table->string('dinilai');
             $table->string('komunikatif');
             $table->string('tugas');
             $table->string('tekanan');

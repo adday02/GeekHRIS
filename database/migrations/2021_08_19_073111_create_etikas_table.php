@@ -15,11 +15,10 @@ class CreateEtikasTable extends Migration
     {
         Schema::create('etikas', function (Blueprint $table) {
             $table->Increments('id_etika');
-            $table->string('username')->index();
-            $table->foreign('username')->references('username')->on('users');
-            $table->string('penilai');
-            $table->string('tahun');
-            $table->string('semester');
+            $table->integer('id_performance')->unsigned();
+            $table->foreign('id_performance')->references('id_performance')->on('performances');
+            $table->string('penilain');
+            $table->string('dinilai');
             $table->string('sikap_tuturkata');
             $table->string('jujur_tanggungjawab');
             $table->string('pakaian_rapi');

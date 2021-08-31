@@ -67,6 +67,11 @@
                       <li><a href="{{URL('admin/magang')}}">Magang</a></li>
                     </ul>
                   </li>
+                  <li><a><i class="fa fa-bar-chart"></i> Penilaian <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{URL('admin/penilaian')}}">Penilaian Pegawai</a></li>
+                    </ul>
+                  </li>
                   <li><a><i class="fa fa-laptop"></i> Project <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{URL('admin/project-list')}}">All Project</a></li>
@@ -76,22 +81,22 @@
                   </li>
                   <li><a><i class="fa fa-money"></i> Gaji <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Gaji Pokok</a></li>
-                      <li><a href="#">Gaji Tunjangan</a></li>
-                      <li><a href="#">Gaji Lembur</a></li>
+                      <li><a href="{{URL('admin/gajipokok')}}">Gaji Pokok</a></li>
+                      <li><a href="{{URL('admin/gajitunjangan')}}">Gaji Tunjangan</a></li>
+                      <li><a href="{{URL('admin/gajilembur')}}">Gaji Lembur</a></li>
                       <li><a href="#">Lain-Lain</a></li>
-                      <li><a href="#">Laporan Gaji</a></li>
+                      <li><a href="#">Total Gaji</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-book"></i> Absensi <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{URL('admin/absen')}}">Absensi Pegawai</a></li>
+                      <li><a href="#">Absensi Pegawai</a></li>
                       <li><a href="#">Rekap Absensi Sakit</a></li>
                       <li><a href="#">Rekap Absensi Izin</a></li>
                       <li><a href="#">Rekap Absensi Tanpa Kabar</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-edit"></i> Pengajuan <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-clock-o"></i> Pengajuan <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{URL('admin/cuti')}}">Pengajuan Cuti</a></li>
                       <li><a href="{{URL('admin/pinjaman')}}">Pengajuan Pinjaman</a></li>
@@ -104,10 +109,6 @@
                       <li><a href="{{URL('admin/lamaran')}}">Lamaran Pekerjaan</a></li>
                     </ul>
                   </li>
-
-                  <li><a><i class="fa fa-bar-chart-o"></i> Penilaian Kinerja Karyawan <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="{{URL('/')}}">Penilaian Kerja</a></li>
                      
                     </ul>
                   </li>
@@ -559,13 +560,13 @@
           type: 'bar',
           data: {
             labels: [
-              "Pegawai", "Rekruitment","Magang","",
+              "Pegawai", "Rekruitment","Magang"
             ],
             datasets: [
               {
                 label: "Jumlah",
                 backgroundColor: [
-                  "#343f51","#808080","#343f51","#808080","#343f51",""
+                  "#343f51","#808080","#343f51","#808080","#343f51"
                 ],
                 data: [
                   {{$user_pegawai}},

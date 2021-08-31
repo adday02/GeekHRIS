@@ -9,7 +9,7 @@ class Kerjasama extends Model
 {
     protected $table='kerjasamas';
     protected $primaryKey = 'id_kerjasama';
-    protected $fillable = [ 'id_kerjasama', 'username','penilai','tahun', 'semester','menisi_partner','koordinasi','empati'];
+    protected $fillable = [ 'id_kerjasama', 'id_performance','penilain','dinilai','menisi_partner','koordinasi','empati'];
     public $timestamps = false;
     protected $keyType = 'integer';
     

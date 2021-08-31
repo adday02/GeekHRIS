@@ -15,8 +15,7 @@ class AdminPenilaianController extends Controller
      */
     public function index()
     {
-        $pegawais = User::where('status','Pegawai')->get();
-        return view('admin/penilaian',compact('pegawais'))->with('i');
+
     }
 
     /**
@@ -48,7 +47,7 @@ class AdminPenilaianController extends Controller
      */
     public function show($id)
     {
-        //
+   
     }
 
     /**

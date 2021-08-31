@@ -7,5 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Etika extends Model
 {
-    use HasFactory;
-}
+    protected $table='etikas';
+    protected $primaryKey = 'id_etika';
+    protected $fillable = [ 'id_etika', 'id_performance','penilain','dinilai','sikap_tuturkata','jujur_tanggungjawab','pakaian_rapi'];
+    public $timestamps = false;
+    protected $keyType = 'integer';
+    
+    public function user()
+    {
+	return $this->belongsTo('App\Models\User','username');
+    }}

@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Performance extends Model
 {
-    protected $table='penilaian_pegawais';
+    protected $table='performances';
     protected $primaryKey = 'id_performance';
-    protected $fillable = [ 'id_performance', 'username','tahun', 'semester'];
+    protected $fillable = [ 'id_performance','tahun', 'semester'];
     public $timestamps = false;
     protected $keyType = 'integer';
     

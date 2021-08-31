@@ -15,11 +15,10 @@ class CreateDisiplinsTable extends Migration
     {
         Schema::create('disiplins', function (Blueprint $table) {
             $table->Increments('id_disiplin');
-            $table->string('username')->index();
-            $table->foreign('username')->references('username')->on('users');
-            $table->string('penilai');
-            $table->string('tahun');
-            $table->string('semester');
+            $table->integer('id_performance')->unsigned();
+            $table->foreign('id_performance')->references('id_performance')->on('performances');
+            $table->string('penilain');
+            $table->string('dinilai');
             $table->string('kerja');
             $table->time('waktu');
         });

@@ -14,9 +14,7 @@ class CreatePerformancesTable extends Migration
     public function up()
     {
         Schema::create('performances', function (Blueprint $table) {
-            $table->Increments('id_performnaces');
-            $table->string('username')->index();
-            $table->foreign('username')->references('username')->on('users');
+            $table->Increments('id_performance');
             $table->string('tahun');
             $table->string('semester');
         });

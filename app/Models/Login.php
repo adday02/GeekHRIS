@@ -12,4 +12,6 @@ class Login extends Authenticatable
     protected $primaryKey = 'username';
     protected $fillable = ['username', 'password']; //field tabel
     public $timestamps = false;
+    protected $keyType = 'string';
+
 }
