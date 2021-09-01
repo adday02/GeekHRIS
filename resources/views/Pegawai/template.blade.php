@@ -72,8 +72,6 @@
                       <li><a href="#">Gaji Pokok</a></li>
                       <li><a href="#">Gaji Tunjangan</a></li>
                       <li><a href="#">Gaji Lembur</a></li>
-                      <li><a href="#">Lain-Lain</a></li>
-                      <li><a href="#">Total Gaji</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-book"></i> Absensi <span class="fa fa-chevron-down"></span></a>

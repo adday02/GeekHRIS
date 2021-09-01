@@ -10,7 +10,8 @@ use App\Http\Controllers\Pegawai_penCutiController;
 use App\Http\Controllers\AdminRecruitmentController;
 use App\Http\Controllers\AdminMagangController;
 use App\Http\Controllers\AdminTunjanganController;
-use App\Http\Controllers\AdminLemburController;
+use App\Http\Controllers\AdminGajipokokController;
+use App\Http\Controllers\AdminTotalgajiController;
 use App\Http\Controllers\Admin_CutiController;
 use App\Http\Controllers\Admin_PinjamanController;
 use App\Http\Controllers\AdminProjectListController;
@@ -30,36 +31,33 @@ use App\Http\Controllers\AdminSemesterController;
 |
 */
 
-Route::group(['prefix'=> 'admin', 'middleware'=> 'auth:admin'], function()
+Route::group(['prefix'=> 'admin'], function()
 {
     Route::resource('dashboard',AdminDashboardController::class);
-    
     Route::resource('pegawai',AdminPegawaiController::class);
-    Route::get('recruitment',[AdminPegawaiController::class,'indexRecruitment']);
-    Route::get('magang',[AdminPegawaiController::class,'indexMagang']);
-
     Route::resource('absen',Admin_absenController::class);
     Route::resource('tunjangan',AdminTunjanganController::class);
+    Route::resource('gajipokok',AdminGajipokokController::class);
+    Route::resource('totalgaji',AdminTotalgajiController::class);
     Route::resource('cuti',Admin_CutiController::class);
     Route::resource('pinjaman',Admin_PinjamanController::class);
     Route::resource('project-list',AdminProjectListController::class);
+    Route::resource('penilaian',AdminSemesterController::class);
+    Route::resource('lowongan',Admin_LowonganController::class);
+    Route::resource('lamaran',Admin_lamaranController::class);
+    Route::get('recruitment',[AdminPegawaiController::class,'indexRecruitment']);
+    Route::get('magang',[AdminPegawaiController::class,'indexMagang']);
     Route::get('project-progres',[AdminProjectListController::class,'progres']);
     Route::get('project-selesai',[AdminProjectListController::class,'selesai']);
-
-    
     Route::get('penilaian',[AdminSemesterController::class,'index']);
     Route::get('penilaian/tahun={id}&&semester={sm}',[AdminSemesterController::class,'pegawai']);
     Route::get('penilaian/tahun={id}&&semester={sm}/{us}',[AdminSemesterController::class,'nilai']);
     Route::get('penilaian/tahun={id}&&semester={sm}/ceknilai/{us}',[AdminSemesterController::class,'cekNilai']);
     Route::post('inputPenilaian',[AdminSemesterController::class,'tambah'])->name('inputPenilaian');
-    Route::resource('penilaian',AdminSemesterController::class);
-
-
-    Route::resource('lowongan',Admin_LowonganController::class);
-    Route::resource('lamaran',Admin_lamaranController::class);
+    
 });
 
-Route::group(['prefix'=> 'pegawai', 'middleware'=> 'auth:pegawai'], function()
+Route::group(['prefix'=> 'pegawai'], function()
 {
     Route::resource('profile-pegawai',Pegawai_ProfileController::class);
     Route::resource('pinjaman-pegawai',Pegawai_PinjamanController::class);

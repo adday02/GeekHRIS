@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Lembur;
+use App\Models\Totalgaji;
 use Illuminate\Support\Facades\Crypt; 
 use App\Models\User;
+use App\Models\Tunjangan;
 
-class AdminLemburController extends Controller
+class AdminTotalgajiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +17,9 @@ class AdminLemburController extends Controller
      */
     public function index()
     {
-        $lembur = Lembur::All();
-        $pegawais = User ::where('status','pegawai')->get();
-        return view('admin/lembur',compact('lembur','pegawais'))->with('i');
+        $pegawai = User::where('status','Pegawai')->get();
+        $tunjangan = Tunjangan::All();
+        return view('admin/totalgaji',compact('pegawai','tunjangan'))->with('i');
     }
 
     /**
@@ -41,11 +42,11 @@ class AdminLemburController extends Controller
     {
         $data = array(
             'username'=>$request->username,
-            'tanggal'=>$request->tanggal,
             'nominal'=>$request->nominal,
+            'jenis'=>$request->jenis,
         );
-        Lembur::create($data);
-        return redirect('admin\lembur')->with('success','lembur berhasil ditambah');
+        Totalgaji::create($data);
+        return redirect('admin\totalgaji')->with('success','totalgaji berhasil ditambah');
     }
 
     /**
@@ -79,12 +80,12 @@ class AdminLemburController extends Controller
      */
     public function update(Request $request, $id)
     {
-            if($request->has('tanggal'))
+            if($request->has('jenis'))
         {
             $data = array(
-                'tanggal'=>$request->tanggal,
+                'jenis'=>$request->jenis,
             );
-            Lembur::whereid_lembur($id)->update($data);
+            Totalgaji::whereid_totalgaji($id)->update($data);
         }
             $data = array(
                 'nominal'=>$request->nominal,
@@ -94,8 +95,8 @@ class AdminLemburController extends Controller
                 'username'=>$request->username,
                         
                 );
-    Lembur::whereid_lembur($id)->update($data);
-    return redirect('admin\lembur');
+    Totalgaji::whereid_totalgaji($id)->update($data);
+    return redirect('admin\totalgaji');
 
     }
 
@@ -108,11 +109,11 @@ class AdminLemburController extends Controller
     public function destroy($id)
     {
         try{
-            $datas = Lembur::findOrfail($id);
+            $datas = Totalgaji::findOrfail($id);
             $datas->delete();
-            return redirect('admin\lembur')->with('success','lembur Berhasil Dihapus');
+            return redirect('admin\totalgaji')->with('success','totalgaji Berhasil Dihapus');
         }catch(\Throwable $th){
-            return redirect('admin\lembur')->withErrors('Data gagal dihapus. Harap hapus data yang terkait');
+            return redirect('admin\totalgaji')->withErrors('Data gagal dihapus. Harap hapus data yang terkait');
         }
     }
 }
