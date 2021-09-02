@@ -1,4 +1,4 @@
-@extends('Pegawai.template.layout')
+@extends('Pegawai.template')
 @section('title','Pegawai - Pengajuan Cuti' )
 @section('content')
 

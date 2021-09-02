@@ -50,30 +50,41 @@
                         <div class="menu_section">
                             <h3>General</h3>
                             <ul class="nav side-menu">
-                                <li><a><i class="fa fa-users"></i> Pengajuan <span
-                                            class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="{{URL('admin/pegawai')}}">Pinjaman</a></li>
-                                        <li><a href="{{URL('admin/recruitment')}}">Cuti</a></li>
-                                    </ul>
-                                </li>
-                                <li><a><i class="fa fa-money"></i> Gaji <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="#">Gaji Pokok</a></li>
-                                        <li><a href="#">Gaji Tunjangan</a></li>
-                                        <li><a href="#">Gaji Lembur</a></li>
-                                        <li><a href="#">Total Gaji</a></li>
-                                    </ul>
-                                </li>
-                                <li><a><i class="fa fa-book"></i> Absensi <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="#">Absensi Pegawai</a></li>
-                                        <li><a href="#">Rekap Absensi Sakit</a></li>
-                                        <li><a href="#">Rekap Absensi Izin</a></li>
-                                        <li><a href="#">Rekap Absensi Tanpa Kabar</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                      <li><a><i class="fa fa-users"></i> Pengajuan <span
+                                  class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu">
+                              <li><a href="{{URL('admin/pegawai')}}">Pinjaman</a></li>
+                              <li><a href="{{URL('admin/recruitment')}}">Cuti</a></li>
+                          </ul>
+                      </li>
+                      <li><a><i class="fa fa-bar-chart"></i> Penilaian <span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu">
+                              <li><a href="{{URL('pegawai/penilaian-pegawai')}}">Beri Penilaian</a></li>
+                              <li><a href="{{URL('pegawai/cekPenilaian-pegawai')}}">Cek Nilai</a></li>
+                          </ul>
+                      </li>
+                      <li><a><i class="fa fa-laptop"></i> Project <span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu">
+                              <li><a href="{{URL('pegawai/project-list-pegawai')}}">List Project</a></li>
+                          </ul>
+                      </li>
+                      <li><a><i class="fa fa-money"></i> Gaji <span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu">
+                              <li><a href="#">Gaji Pokok</a></li>
+                              <li><a href="#">Gaji Tunjangan</a></li>
+                              <li><a href="#">Gaji Lembur</a></li>
+                              <li><a href="#">Total Gaji</a></li>
+                          </ul>
+                      </li>
+                      <li><a><i class="fa fa-book"></i> Absensi <span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu">
+                              <li><a href="#">Absensi Pegawai</a></li>
+                              <li><a href="#">Rekap Absensi Sakit</a></li>
+                              <li><a href="#">Rekap Absensi Izin</a></li>
+                              <li><a href="#">Rekap Absensi Tanpa Kabar</a></li>
+                          </ul>
+                      </li>
+                  </ul>
                         </div>
                     </div>
                     <!-- /sidebar menu -->

@@ -5,8 +5,6 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminPegawaiController;
 use App\Http\Controllers\Admin_absenController;
-use App\Http\Controllers\Pegawai_profileController;
-use App\Http\Controllers\Pegawai_penCutiController;
 use App\Http\Controllers\AdminRecruitmentController;
 use App\Http\Controllers\AdminMagangController;
 use App\Http\Controllers\AdminTunjanganController;
@@ -18,6 +16,13 @@ use App\Http\Controllers\AdminPenilaianController;
 use App\Http\Controllers\Admin_LowonganController;
 use App\Http\Controllers\Admin_lamaranController;
 use App\Http\Controllers\AdminSemesterController;
+
+use App\Http\Controllers\PegawaiSemesterController;
+use App\Http\Controllers\Pegawai_profileController;
+use App\Http\Controllers\Pegawai_penCutiController;
+use App\Http\Controllers\PegawaiProjectListController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -51,8 +56,8 @@ Route::group(['prefix'=> 'admin', 'middleware'=> 'auth:admin'], function()
     Route::get('penilaian/tahun={id}&&semester={sm}',[AdminSemesterController::class,'pegawai']);
     Route::get('penilaian/tahun={id}&&semester={sm}/{us}',[AdminSemesterController::class,'nilai']);
     Route::get('penilaian/tahun={id}&&semester={sm}/ceknilai/{us}',[AdminSemesterController::class,'cekNilai']);
-    Route::post('inputPenilaian',[AdminSemesterController::class,'tambah'])->name('inputPenilaian');
     Route::resource('penilaian',AdminSemesterController::class);
+    Route::post('inputPenilaian',[AdminSemesterController::class,'tambah'])->name('inputPenilaian');
 
 
     Route::resource('lowongan',Admin_LowonganController::class);
@@ -60,11 +65,23 @@ Route::group(['prefix'=> 'admin', 'middleware'=> 'auth:admin'], function()
 });
 
 Route::group(['prefix'=> 'pegawai', 'middleware'=> 'auth:pegawai'], function()
-{
+{   
     Route::resource('profile-pegawai',Pegawai_ProfileController::class);
     Route::resource('pinjaman-pegawai',Pegawai_PinjamanController::class);
     Route::resource('cuti-pegawai',Pegawai_penCutiController::class);
-    Route::resource('profile-pegawai',Pegawai_profileController::class);  
+    Route::resource('profile-pegawai',Pegawai_profileController::class); 
+
+    Route::get('penilaian-pegawai',[PegawaiSemesterController::class,'index']);
+    Route::get('penilaian-pegawai/tahun={id}&&semester={sm}',[PegawaiSemesterController::class,'pegawai']);
+    Route::get('penilaian-pegawai/tahun={id}&&semester={sm}/{us}',[PegawaiSemesterController::class,'nilai']);
+    Route::post('inputPenilaian-pegawai',[PegawaiSemesterController::class,'tambah'])->name('inputPenilaian-pegawai');
+    Route::get('cekPenilaian-pegawai',[PegawaiSemesterController::class,'pilihsemester']);
+
+    Route::get('penilaian-pegawai/tahun={id}&&semester={sm}/ceknilai/{us}',[PegawaiSemesterController::class,'cekNilai']);
+
+
+    Route::resource('project-list-pegawai',PegawaiProjectListController::class);
+ 
 });
 
 //HALAMAN LOGIN
