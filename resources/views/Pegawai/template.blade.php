@@ -56,6 +56,7 @@
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
+<<<<<<< HEAD
                   <h3>General</h3>
                   <ul class="nav side-menu">
                       <li><a><i class="fa fa-users"></i> Pengajuan <span
@@ -92,6 +93,38 @@
                               <li><a href="#">Rekap Absensi Tanpa Kabar</a></li>
                           </ul>
                       </li>
+=======
+                <h3>General</h3>
+                <ul class="nav side-menu">
+                  <li><a href="{{URL('admin/dashboard')}}"><i class="fa fa-tachometer "></i> Dashboard </a></li>
+                  <li><a><i class="fa fa-users"></i> User <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{URL('admin/pegawai')}}">Pegawai</a></li>
+                      <li><a href="{{URL('admin/recruitment')}}">Rekruitment</a></li>
+                      <li><a href="{{URL('admin/magang')}}">Magang</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-money"></i> Gaji <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="#">Gaji Pokok</a></li>
+                      <li><a href="#">Gaji Tunjangan</a></li>
+                      <li><a href="#">Gaji Lembur</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-book"></i> Absensi <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="#">Absensi Pegawai</a></li>
+                      <li><a href="#">Rekap Absensi Sakit</a></li>
+                      <li><a href="#">Rekap Absensi Izin</a></li>
+                      <li><a href="#">Rekap Absensi Tanpa Kabar</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-clock-o"></i> Jadwal <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="#">Jadwal Cuti</a></li>
+                    </ul>
+                  </li>
+>>>>>>> 332de6db6c67b06548288bef6db1ff1e434e9590
                   </ul>
               </div>
           </div><!-- /sidebar menu -->

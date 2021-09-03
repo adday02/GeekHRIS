@@ -82,10 +82,8 @@
                   <li><a><i class="fa fa-money"></i> Gaji <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{URL('admin/gajipokok')}}">Gaji Pokok</a></li>
-                      <li><a href="{{URL('admin/gajitunjangan')}}">Gaji Tunjangan</a></li>
-                      <li><a href="{{URL('admin/gajilembur')}}">Gaji Lembur</a></li>
-                      <li><a href="#">Lain-Lain</a></li>
-                      <li><a href="#">Total Gaji</a></li>
+                      <li><a href="{{URL('admin/tunjangan')}}">Gaji Tunjangan</a></li>
+                      <li><a href="{{URL('admin/totalgaji')}}">Total Gaji</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-book"></i> Absensi <span class="fa fa-chevron-down"></span></a>
