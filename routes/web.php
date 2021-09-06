@@ -17,11 +17,9 @@ use App\Http\Controllers\AdminPenilaianController;
 use App\Http\Controllers\Admin_LowonganController;
 use App\Http\Controllers\Admin_lamaranController;
 use App\Http\Controllers\AdminSemesterController;
-<<<<<<< HEAD
-use App\Http\Controllers\Atasan_dashboardController;
-=======
 
 use App\Http\Controllers\AtasanSemesterController;
+use App\Http\Controllers\Atasan_dashboardController;
 
 use App\Http\Controllers\PegawaiSemesterController;
 use App\Http\Controllers\Pegawai_profileController;
@@ -30,7 +28,6 @@ use App\Http\Controllers\PegawaiProjectListController;
 
 
 
->>>>>>> 3b003466ab44fb15bd57c1147196fbfcf1bcd52c
 /*
 |--------------------------------------------------------------------------
 | Web Routes
