@@ -19,7 +19,7 @@ use App\Http\Controllers\AdminPenilaianController;
 use App\Http\Controllers\Admin_LowonganController;
 use App\Http\Controllers\Admin_lamaranController;
 use App\Http\Controllers\AdminSemesterController;
-
+use App\Http\Controllers\Atasan_dashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -63,6 +63,12 @@ Route::group(['prefix'=> 'pegawai'], function()
     Route::resource('pinjaman-pegawai',Pegawai_PinjamanController::class);
     Route::resource('cuti-pegawai',Pegawai_penCutiController::class);
     Route::resource('profile-pegawai',Pegawai_profileController::class);  
+});
+
+Route::group(['prefix'=> 'atasan'], function()
+{
+    Route::resource('atasan',Atasan_dashboardController::class);
+     
 });
 
 //HALAMAN LOGIN

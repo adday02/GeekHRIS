@@ -12,23 +12,23 @@
     <title>@yield('title')</title>
 
     <!-- Bootstrap -->
-    <link href="../../../../Admin/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../Admin/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="../../../../Admin/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../Admin/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
-    <link href="../../../../Admin/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="../Admin/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
-    <link href="../../../../Admin/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <link href="../Admin/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
 	
     <!-- bootstrap-progressbar -->
-    <link href="../../../../Admin/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <link href="../Admin/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
     <!-- JQVMap -->
-    <link href="../../../../Admin/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+    <link href="../Admin/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
     <!-- bootstrap-daterangepicker -->
-    <link href="../../../../Admin/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <link href="../Admin/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
-    <link href="../../../../Admin/build/css/custom.min.css" rel="stylesheet">
+    <link href="../Admin/build/css/custom.min.css" rel="stylesheet">
   </head>
 
   <body class="nav-md">
@@ -45,7 +45,7 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="../../../../Admin/Build/images/img.jpg" alt="../../..." class="img-circle profile_img">
+                <img src="../Admin/Build/images/img.jpg" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
@@ -84,8 +84,10 @@
                   <li><a><i class="fa fa-money"></i> Gaji <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{URL('admin/gajipokok')}}">Gaji Pokok</a></li>
-                      <li><a href="{{URL('admin/tunjangan')}}">Gaji Tunjangan</a></li>
-                      <li><a href="{{URL('admin/totalgaji')}}">Total Gaji</a></li>
+                      <li><a href="{{URL('admin/gajitunjangan')}}">Gaji Tunjangan</a></li>
+                      <li><a href="{{URL('admin/gajilembur')}}">Gaji Lembur</a></li>
+                      <li><a href="#">Lain-Lain</a></li>
+                      <li><a href="#">Total Gaji</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-book"></i> Absensi <span class="fa fa-chevron-down"></span></a>
@@ -150,7 +152,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="../../../../Admin/Build/images/img.jpg" alt="">Admin
+                    <img src="../Admin/Build/images/img.jpg" alt="">Admin
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -162,7 +164,7 @@
                       </a>
                     </li>
                     <li><a href="javascript:;">Help</a></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    <li><a href="{{URL('/keluar')}}"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
 
@@ -241,7 +243,7 @@
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+            Geek Garden Software House <a href="https://colorlib.com">Colorlib</a>
           </div>
           <div class="clearfix"></div>
         </footer>
@@ -249,70 +251,67 @@
       </div>
     </div>
     <!-- jQuery -->
-    <script src="../../../../Admin/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="../Admin/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
-    <script src="../../../../Admin/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../Admin/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- FastClick -->
-    <script src="../../../../Admin/vendors/fastclick/lib/fastclick.js"></script>
+    <script src="../Admin/vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
-    <script src="../../../../Admin/vendors/nprogress/nprogress.js"></script>
+    <script src="../Admin/vendors/nprogress/nprogress.js"></script>
     <!-- Chart.js -->
-    <script src="../../../../Admin/vendors/Chart.js/dist/Chart.min.js"></script>
+    <script src="../Admin/vendors/Chart.js/dist/Chart.min.js"></script>
     <!-- gauge.js -->
-    <script src="../../../../Admin/vendors/gauge.js/dist/gauge.min.js"></script>
+    <script src="../Admin/vendors/gauge.js/dist/gauge.min.js"></script>
     <!-- bootstrap-progressbar -->
-    <script src="../../../../Admin/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="../Admin/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
     <!-- iCheck -->
-    <script src="../../../../Admin/vendors/iCheck/icheck.min.js"></script>
+    <script src="../Admin/vendors/iCheck/icheck.min.js"></script>
     <!-- Skycons -->
-    <script src="../../../../Admin/vendors/skycons/skycons.js"></script>
+    <script src="../Admin/vendors/skycons/skycons.js"></script>
     <!-- Flot -->
-    <script src="../../../../Admin/vendors/Flot/jquery.flot.js"></script>
-    <script src="../../../../Admin/vendors/Flot/jquery.flot.pie.js"></script>
-    <script src="../../../../Admin/vendors/Flot/jquery.flot.time.js"></script>
-    <script src="../../../../Admin/vendors/Flot/jquery.flot.stack.js"></script>
-    <script src="../../../../Admin/vendors/Flot/jquery.flot.resize.js"></script>
+    <script src="../Admin/vendors/Flot/jquery.flot.js"></script>
+    <script src="../Admin/vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="../Admin/vendors/Flot/jquery.flot.time.js"></script>
+    <script src="../Admin/vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="../Admin/vendors/Flot/jquery.flot.resize.js"></script>
     <!-- Flot plugins -->
-    <script src="../../../../Admin/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-    <script src="../../../../Admin/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-    <script src="../../../../Admin/vendors/flot.curvedlines/curvedLines.js"></script>
+    <script src="../Admin/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="../Admin/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="../Admin/vendors/flot.curvedlines/curvedLines.js"></script>
     <!-- DateJS -->
-    <script src="../../../../Admin/vendors/DateJS/build/date.js"></script>
+    <script src="../Admin/vendors/DateJS/build/date.js"></script>
     <!-- JQVMap -->
-    <script src="../../../../Admin/vendors/jqvmap/dist/jquery.vmap.js"></script>
-    <script src="../../../../Admin/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="../../../../Admin/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <script src="../Admin/vendors/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="../Admin/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="../Admin/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
     <!-- bootstrap-daterangepicker -->
-    <script src="../../../../Admin/vendors/moment/min/moment.min.js"></script>
-    <script src="../../../../Admin/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="../Admin/vendors/moment/min/moment.min.js"></script>
+    <script src="../Admin/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
     <!-- Table -->
-    <script src="../../../../Admin/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="../../../../Admin/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-    <script src="../../../../Admin/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script src="{{asset('js/dataTables.buttons.min.js')}}"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
-
+    <script src="../Admin/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../Admin/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="../Admin/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.flash.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js" type="text/javascript"></script>
+    
     <script type="text/javascript">
-            
-            $(document).ready(function () {
-                $('#table-datatables').DataTable({
-                    dom: 'Bfrtip',
-                    buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
-                });
-            });
-        </script>
+    $(document).ready(function () {
+        $('#table-datatables').DataTable({
+            dom: 'Bfrtip',
+            buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+        });
+    });
+</script>  
 
     <!-- Custom Theme Scripts -->
-    <script src="../../../../Admin/build/js/custom.min.js"></script>
+    <script src="../Admin/build/js/custom.min.js"></script>
     <script type="text/javascript">
       // Bar chart
       new Chart(document.getElementById("bar-chart"), {
