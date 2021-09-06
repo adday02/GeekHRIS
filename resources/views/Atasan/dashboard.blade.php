@@ -6,8 +6,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">
 
     <title>Dashboard</title>
 
@@ -49,7 +47,7 @@
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>Chief executive officer</h2>
+                <h2>Admin</h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -61,31 +59,31 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                  <li><a href="{{URL('atasan/dashboard')}}"><i class="fa fa-tachometer "></i> Dashboard </a></li>
+                  <li><a href="{{URL('atasan/dashboard-atasan')}}"><i class="fa fa-tachometer "></i> Dashboard </a></li>
                   <li><a><i class="fa fa-users"></i> User <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{URL('admin/pegawai')}}">Pegawai</a></li>
-                      <li><a href="{{URL('admin/recruitment')}}">Rekruitment</a></li>
-                      <li><a href="{{URL('admin/magang')}}">Magang</a></li>
+                      <li><a href="{{URL('atasan/pegawai-atasan')}}">Pegawai</a></li>
+                      <li><a href="{{URL('atasan/recruitment-atasan')}}">Rekruitment</a></li>
+                      <li><a href="{{URL('atasan/magang-atasan')}}">Magang</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-bar-chart"></i> Penilaian <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{URL('admin/penilaian')}}">Penilaian Pegawai</a></li>
+                      <li><a href="{{URL('atasan/penilaian-atasan')}}">Penilaian Pegawai</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-laptop"></i> Project <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{URL('admin/project-list')}}">All Project</a></li>
-                      <li><a href="{{URL('admin/project-progres')}}">Progress Project</a></li>
-                      <li><a href="{{URL('admin/project-selesai')}}">Done Project</a></li>
+                      <li><a href="{{URL('atasan/project-list-atasan')}}">All Project</a></li>
+                      <li><a href="{{URL('atasan/project-progres-atasan')}}">Progress Project</a></li>
+                      <li><a href="{{URL('atasan/project-selesai-atasan')}}">Done Project</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-money"></i> Gaji <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{URL('admin/gajipokok')}}">Gaji Pokok</a></li>
-                      <li><a href="{{URL('admin/gajitunjangan')}}">Gaji Tunjangan</a></li>
-                      <li><a href="{{URL('admin/gajilembur')}}">Gaji Lembur</a></li>
+                      <li><a href="{{URL('atasan/gajipokok-atasan')}}">Gaji Pokok</a></li>
+                      <li><a href="{{URL('atasan/gajitunjangan-atasan')}}">Gaji Tunjangan</a></li>
+                      <li><a href="{{URL('atasan/gajilembur-atasan')}}">Gaji Lembur</a></li>
                       <li><a href="#">Lain-Lain</a></li>
                       <li><a href="#">Total Gaji</a></li>
                     </ul>
@@ -100,15 +98,15 @@
                   </li>
                   <li><a><i class="fa fa-clock-o"></i> Pengajuan <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{URL('admin/cuti')}}">Pengajuan Cuti</a></li>
-                      <li><a href="{{URL('admin/pinjaman')}}">Pengajuan Pinjaman</a></li>
+                      <li><a href="{{URL('atasan/cuti-atasan')}}">Pengajuan Cuti</a></li>
+                      <li><a href="{{URL('atasan/pinjaman-atasan')}}">Pengajuan Pinjaman</a></li>
                     </ul>
                   </li>
 
                   <li><a><i class="fa fa-desktop"></i> Pekerjaan <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{URL('admin/lowongan')}}">Lowongan Pekerjaan</a></li>
-                      <li><a href="{{URL('admin/lamaran')}}">Lamaran Pekerjaan</a></li>
+                      <li><a href="{{URL('atasan/lowongan-atasan')}}">Lowongan Pekerjaan</a></li>
+                      <li><a href="{{URL('atasan/lamaran-atasan')}}">Lamaran Pekerjaan</a></li>
                     </ul>
                   </li>
                      
@@ -120,7 +118,6 @@
 
             </div>
             <!-- /sidebar menu -->
-
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
               <a data-toggle="tooltip" data-placement="top" title="Settings">
@@ -132,7 +129,7 @@
               <a data-toggle="tooltip" data-placement="top" title="Lock">
                 <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="{{URL('keluar-atasan')}}">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div>
@@ -147,11 +144,10 @@
               <div class="nav toggle">
                 <a id="menu_toggle"><i class="fa fa-bars"></i></a>
               </div>
-
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="../Admin/Build/images/img.jpg" alt="">Chief Executive Officer
+                    <img src="../Admin/Build/images/img.jpg" alt="">Admin
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -163,10 +159,9 @@
                       </a>
                     </li>
                     <li><a href="javascript:;">Help</a></li>
-                    <li><a href="{{URL('/keluar')}}"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    <li><a href="{{URL('keluar-atasan')}}"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
-
                 <li role="presentation" class="dropdown">
                   <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-envelope-o"></i>
@@ -334,7 +329,7 @@
             <div class="col-md-4 col-sm-4 col-xs-12">
               <div class="x_panel tile fixed_height_320">
                 <div class="x_title">
-                  <h2>Daftar Hadir Pada {{ date("d F Y")}}</h2>
+                  <h2>Daftar Hadir Pada {{ date("d F Y-atasan")}}</h2>
                   <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -553,19 +548,65 @@
     <script src="../Admin/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="../Admin/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     <script src="../Admin/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
 
     <!-- Custom Theme Scripts -->
     <script src="../Admin/build/js/custom.min.js"></script>
+    <script type="text/javascript">
+      // Bar chart
+      new Chart(document.getElementById("bar-chart"), {
+          type: 'bar',
+          data: {
+            labels: [
+              "Pegawai", "Rekruitment","Magang"
+            ],
+            datasets: [
+              {
+                label: "Jumlah",
+                backgroundColor: [
+                  "#343f51","#808080","#343f51","#808080","#343f51"
+                ],
+                data: [
+                  {{$user_pegawai}},
+                  {{$user_recruitment}},
+                  {{$user_magang}},
+                  0,
+                ]
+              }
+            ]
+          },
+          options: {
+            legend: { display: false },
+            title: {
+              display: true,
+              text: 'Jumlah User Geek Garden Software House'
+            }
+          }
+      });
+    </script>
+    <script>
+ 
+ var ctx = document.getElementById("inicanvas").getContext("2d");
+ // tampilan chart
+ var piechart = new Chart(ctx,{type: 'pie',
+   data : {
+ // label nama setiap Value
+ labels:[
+           'Sudah Terima Gaji',
+           'Belum Terima Gaji'
+   ],
+ datasets: [{
+   // Jumlah Value yang ditampilkan
+    data:[60,60],
 
+   backgroundColor:[
+     'rgba(128, 128, 128)',
+     'rgba(77,77,77)',
+    ]
+ }],
+ }
+ });
+
+</script>
     </body>
 </html>
 
