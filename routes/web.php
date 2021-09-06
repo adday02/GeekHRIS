@@ -76,25 +76,6 @@ Route::group(['prefix'=> 'atasan'], function()
     Route::get('penilaian-atasan/tahun={id}&&semester={sm}/ceknilai/{us}',[AtasanSemesterController::class,'cekNilai']);
     Route::resource('penilaian-atasan',AtasanSemesterController::class);
     Route::post('inputPenilaian',[AtasanSemesterController::class,'tambah'])->name('inputPenilaian');
-
-    // Route::resource('dashboard',AdminDashboardController::class);
-    // Route::resource('pegawai',AdminPegawaiController::class);
-    // Route::resource('absen',Admin_absenController::class);
-    // Route::resource('tunjangan',AdminTunjanganController::class);
-    // Route::resource('gajipokok',AdminGajipokokController::class);
-    // Route::resource('totalgaji',AdminTotalgajiController::class);
-    // Route::resource('cuti',Admin_CutiController::class);
-    // Route::resource('pinjaman',Admin_PinjamanController::class);
-    // Route::resource('project-list',AdminProjectListController::class);
-    // Route::resource('penilaian',AdminSemesterController::class);
-    // Route::resource('lowongan',Admin_LowonganController::class);
-    // Route::resource('lamaran',Admin_lamaranController::class);
-    // Route::get('recruitment',[AdminPegawaiController::class,'indexRecruitment']);
-    // Route::get('magang',[AdminPegawaiController::class,'indexMagang']);
-    // Route::get('project-progres',[AdminProjectListController::class,'progres']);
-    // Route::get('project-selesai',[AdminProjectListController::class,'selesai']);
-    // Route::resource('lowongan',Admin_LowonganController::class);
-    // Route::resource('lamaran',Admin_lamaranController::class);
 });
 
 Route::group(['prefix'=> 'pegawai', 'middleware'=> 'auth:pegawai'], function()
