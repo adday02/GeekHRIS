@@ -1,4 +1,4 @@
-@extends('pegawai.template')
+@extends('atasan.template')
 @section('title','Tambah Penilaian' )
 @section('content')
 
@@ -76,7 +76,7 @@
         </div>
         </div>
     </div>
-    <form class="form-horizontal form-label-left input_mask" action="{{Route('inputPenilaian-pegawai')}}" method="POST" enctype="multipart/form-data">
+    <form class="form-horizontal form-label-left input_mask" action="{{Route('inputPenilaian-atasan')}}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="row">
         <div class="col-md-6 col-xs-12">
@@ -410,7 +410,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                <label class="control-label col-md-6 col-sm-12 col-xs-12">Kebersihan dan kenyamanan lingkungan kerja {{auth()->user()->username}}</label>
+                <label class="control-label col-md-6 col-sm-12 col-xs-12">Kebersihan dan kenyamanan lingkungan kerja</label>
                     <div class="col-md-6 col-sm-3 col-xs-3">
                     <select id="heard" class="form-control" name="kebersihan" required>
                         <option value="">Nilai</option>

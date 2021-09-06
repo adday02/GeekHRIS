@@ -1,4 +1,4 @@
-@extends('pegawai.template')
+@extends('Atasan.template')
 @section('title','Penilain' )
 @section('content')
     <!-- page content -->
@@ -26,6 +26,12 @@
                 </div>
             @endif
                 <div class="x_title">
+                <form form action="{{route('penilaian.store')}}" method="POST" align="right">
+                    @csrf
+                    <input type="hidden" value="{{date('m')}}" name="semester">
+                    <input type="hidden" value="{{date('Y')}}" name="tahun">
+                    <button type="submit" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Buka Penilaian Semester Ini</a>
+                </form>
                 <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -45,22 +51,8 @@
                         <td>{{$p->tahun}}</td>
                         <td>{{$p->semester}}</td>
                         <td>
-                        @php
-                            $tambah=0;
-                        @endphp
-                        @foreach($cek as $c)
-                            @if($c->id_performance==$p->id_performance)
-                                @php
-                                    $tambah=1;
-                                @endphp
-                            @endif
-                        @endforeach
-                        @if($tambah==1)
-                        <button class="btn btn-danger btn-sm">Penilaian Selesai</button>
-                        @else
-                        <a href="penilaian-pegawai/tahun={{$p->tahun}}&&semester={{$p->semester}}" class="btn btn-primary btn-sm">Tambah Penilaian</a>
-                        @endif
-                    </td>
+                        <a href="penilaian-atasan/tahun={{$p->tahun}}&&semester={{$p->semester}}" class="btn btn-primary btn-sm">Tambah Penilaian</a>              
+                        </td>
                     </tr>
                     @endforeach
                     </tbody>

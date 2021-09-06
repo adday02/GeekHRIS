@@ -98,10 +98,12 @@ Route::group(['prefix'=> 'pegawai', 'middleware'=> 'auth:pegawai'], function()
  
 });
 
-Route::group(['prefix'=> 'atasan'], function()
+Route::group(['prefix'=> 'atasan', 'middleware'=> 'auth:atasan'], function()
 {
-    Route::resource('atasan',Atasan_dashboardController::class);
-     
+    Route::get('penilaian-atasan',[AtasanSemesterController::class,'index']);
+    Route::get('penilaian-atasan/tahun={id}&&semester={sm}',[AtasanSemesterController::class,'pegawai']);
+    Route::get('penilaian-atasan/tahun={id}&&semester={sm}/{us}',[AtasanSemesterController::class,'nilai']);
+    Route::post('inputPenilaian-atasan',[AtasanSemesterController::class,'tambah'])->name('inputPenilaian-atasan');
 });
 
 //HALAMAN LOGIN

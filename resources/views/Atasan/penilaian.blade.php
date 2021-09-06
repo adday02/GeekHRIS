@@ -1,4 +1,4 @@
-@extends('pegawai.template')
+@extends('atasan.template')
 @section('title','Penilain' )
 @section('content')
     <!-- page content -->
@@ -15,37 +15,53 @@
         @foreach($pegawais as $pegawai)
         <div class="col-md-3 col-xs-12 widget widget_tally_box">
             <div class="x_panel fixed_height_390">
+            @php
+                $cek=0;
+                foreach($kemampuan as $k){
+                    if($k->dinilai==$pegawai->username && $k->penilain==auth()->user()->username){
+                        $cek=1;
+                    }                        
+                }
+                @endphp
+                @if($cek==1)
+                <ul class="list-inline">
+                    <h3 class="btn btn-round btn-primary" >Sudah diberi nilai</h3>
+                </ul>                
+                @else
+                <ul class="list-inline">
+                    <h3 class="btn btn-round btn-danger" >Belum diberi nilai</h3>
+                </ul>        
+                @endif
                 <div class="x_content">
+
                 <div class="flex">
                     <ul class="list-inline widget_profile_box">
                     <li>
-                        <a href="tahun={{$performance->tahun}}&&semester={{$performance->semester}}/{{$pegawai->username}}">
+                        <a href="#">
                         <i class="fa fa-plus"></i>
                         </a>
                     </li>
                     <li>
-                    <a href="tahun={{$performance->tahun}}&&semester={{$performance->semester}}/{{$pegawai->username}}">
                         <img src="{{URL::to('/')}}/foto/{{$pegawai->foto}}" alt="..." class="img-circle profile_img">
-                    </a>
                     </li>
                     <li>
-                        <a href="tahun={{$performance->tahun}}&&semester={{$performance->semester}}/{{$pegawai->username}}">
+                        <a href="#">
                         <i class="fa fa-plus"></i>
                         </a>
                     </li>
                     </ul>
                 </div>
-
-                <h3 class="name">{{$pegawai->nama}}</h3>
+                <h4 class="name" style="float:center;">{{$pegawai->nama}}</h4>
 
                 <div class="flex">
                     <ul class="list-inline count2">
-                        <h3 align="center">{{{$pegawai->divisi}}}</h3>
+                        <h5 style="white-space:pre">Devisi <pre>{{$pegawai->divisi}}</pre></h5>
                     </ul>
                 </div>
-                <p>
-                    If you've decided to go in development mode and tweak all of this a bit, there are few things you should do.
-                </p>
+                <button type="button" class="btn btn-warning">Cek nilai</button>
+                @if($cek==0)
+                <a style="float:right;" class="btn btn-success" href="tahun={{$performance->tahun}}&&semester={{$performance->semester}}/{{$pegawai->username}}">Tambah Nilai</a>
+                @endif
                 </div>
             </div>
         </div>
