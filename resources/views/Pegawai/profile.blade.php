@@ -53,8 +53,8 @@
                                 <li><a><i class="fa fa-users"></i> Pengajuan <span
                                             class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="{{URL('admin/pegawai')}}">Pinjaman</a></li>
-                                        <li><a href="{{URL('admin/recruitment')}}">Cuti</a></li>
+                                        <li><a href="{{URL('pegawai/pengajuan-cuti')}}">Pengajuan Cuti</a></li>
+                                        <li><a href="{{URL('pegawai/pengajuan-pinjaman')}}">Pengajuan Pinjaman</a></li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-money"></i> Gaji <span class="fa fa-chevron-down"></span></a>

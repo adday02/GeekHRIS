@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminPegawaiController;
 use App\Http\Controllers\Admin_absenController;
 use App\Http\Controllers\Pegawai_profileController;
 use App\Http\Controllers\Pegawai_penCutiController;
+use App\Http\Controllers\Pegawai_PinjamanController;
 use App\Http\Controllers\AdminRecruitmentController;
 use App\Http\Controllers\AdminMagangController;
 use App\Http\Controllers\AdminTunjanganController;
@@ -31,7 +32,7 @@ use App\Http\Controllers\AdminSemesterController;
 |
 */
 
-Route::group(['prefix'=> 'admin'], function()
+Route::group(['prefix'=> 'admin', 'middleware'=> 'auth:admin'], function()
 {
     Route::resource('dashboard',AdminDashboardController::class);
     Route::resource('pegawai',AdminPegawaiController::class);
@@ -57,11 +58,11 @@ Route::group(['prefix'=> 'admin'], function()
     
 });
 
-Route::group(['prefix'=> 'pegawai'], function()
+Route::group(['prefix'=> 'pegawai', 'middleware'=> 'auth:pegawai'], function()
 {
     Route::resource('profile-pegawai',Pegawai_ProfileController::class);
-    Route::resource('pinjaman-pegawai',Pegawai_PinjamanController::class);
-    Route::resource('cuti-pegawai',Pegawai_penCutiController::class);
+    Route::resource('pengajuan-pinjaman',Pegawai_PinjamanController::class);
+    Route::resource('pengajuan-cuti',Pegawai_penCutiController::class);
     Route::resource('profile-pegawai',Pegawai_profileController::class);  
 });
 
