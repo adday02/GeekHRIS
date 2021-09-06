@@ -17,14 +17,13 @@ use App\Http\Controllers\AdminPenilaianController;
 use App\Http\Controllers\Admin_LowonganController;
 use App\Http\Controllers\Admin_lamaranController;
 use App\Http\Controllers\AdminSemesterController;
-
 use App\Http\Controllers\AtasanSemesterController;
 use App\Http\Controllers\Atasan_dashboardController;
-
 use App\Http\Controllers\PegawaiSemesterController;
 use App\Http\Controllers\Pegawai_profileController;
 use App\Http\Controllers\Pegawai_penCutiController;
 use App\Http\Controllers\PegawaiProjectListController;
+use App\Http\Controllers\Pegawai_PinjamanController;
 
 
 

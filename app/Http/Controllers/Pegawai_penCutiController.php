@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+ 
 use Illuminate\Http\Request;
 use App\Models\Cuti;
 use App\Models\User;
@@ -16,8 +16,7 @@ class Pegawai_penCutiController extends Controller
     public function index()
     {
         $cutis = Cuti::all();
-       
-        return view('Pegawai/pengajuancuti',compact('cutis'))->with('i');
+        return view('pegawai/pengajuan-cuti',compact('cutis'))->with('i');
     }
 
     /**
@@ -38,18 +37,14 @@ class Pegawai_penCutiController extends Controller
      */
     public function store(Request $request)
     {
-       
-
-      
-
         $data = array(
-            'username'=>$request->username,
+            'username'=>auth()->user()->username,
             'tanggal'=>$request->tanggal,
             'keterangan'=>$request->keterangan,
             'status'=>'Dalam Proses',
         );
         Cuti::create($data);
-        return redirect('Pegawai\cuti-pegawai')->with('success','cuti berhasil ditambah');
+        return redirect('pegawai\pengajuan-cuti')->with('success','Pengajuan Cuti berhasil ditambah');
     }
 
     /**
@@ -83,7 +78,12 @@ class Pegawai_penCutiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = array(
+            'tanggal'=>$request->tanggal,
+            'keterangan'=>$request->keterangan,
+        );
+    Cuti::whereid_cuti($id)->update($data);
+    return redirect('pegawai/pengajuan-cuti');
     }
 
     /**
@@ -94,6 +94,12 @@ class Pegawai_penCutiController extends Controller
      */
     public function destroy($id)
     {
-        
+        try{
+            $datas = Cuti::findOrfail($id);
+            $datas->delete();
+            return redirect('pegawai/pengajuan-cuti')->with('success','Pengajuan Cuti Berhasil Dihapus');
+        }catch(\Throwable $th){
+            return redirect('pegawai/pengajuan-cuti')->withErrors('Data gagal dihapus. Harap hapus data yang terkait');
+        }
     }
 }

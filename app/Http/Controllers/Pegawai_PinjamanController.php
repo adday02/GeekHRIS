@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pinjaman;
+use App\Models\User;
 
 class Pegawai_PinjamanController extends Controller
 {
@@ -14,8 +15,8 @@ class Pegawai_PinjamanController extends Controller
      */
     public function index()
     {
-        $pinjaman = Pinjaman::where('username','{{auth()->user()->username}}')->get();
-        return view('pegawai/pinjaman-pegawai',compact('pinjaman'))->with('i');
+        $pinjamans = Pinjaman::all();
+        return view('pegawai/pengajuan-pinjaman',compact('pinjamans'))->with('i');
     }
 
     /**
@@ -37,14 +38,14 @@ class Pegawai_PinjamanController extends Controller
     public function store(Request $request)
     {
         $data = array(
-            'username'=>$request->username,
+            'username'=>auth()->user()->username,
+            'tanggal'=>$request->tanggal,
             'nominal'=>$request->nominal,
             'keterangan'=>$request->keterangan,
-            'tgl'=>$request->tgl,
-            'status'=>$request->status,
+            'status'=>'Dalam Proses',
         );
-        User::create($data);
-        return redirect('pegawai/pinjaman-pegawai')->with('success','Pegawai berhasil ditambah');
+        Pinjaman::create($data);
+        return redirect('pegawai/pengajuan-pinjaman')->with('success','Pengajuan Pinjaman berhasil ditambah');
     }
 
     /**
@@ -78,38 +79,13 @@ class Pegawai_PinjamanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $foto = $request->file('foto');
-        if($request->hasFile('foto'))
-        {
-            $new_name = rand().'.'.$foto->getClientOriginalExtension();
-            $foto->move(public_path('foto'), $new_name);
-            $data = array(            
-                'foto'=>$new_name,
-            );
-        User::whereusername($id)->update($data);
-        }
-        if($request->has('jabatan'))
-        {
-            $data = array(
-                'jabatan'=>$request->jabatan,
-            );
-            User::whereusername($id)->update($data);
-        }
-        if($request->has('agama'))
-        {
-            $data = array(
-                'agama'=>$request->agama,
-            );
-            User::whereusername($id)->update($data);
-        }
         $data = array(
-            'nama'=>$request->nama,
-            'email'=>$request->email,
-            'no_hp'=>$request->no_hp,
-            'alamat'=>$request->alamat,
+            'tanggal'=>$request->tanggal,
+            'nominal'=>$request->nominal,
+            'keterangan'=>$request->keterangan,
         );
-    User::whereusername($id)->update($data);
-    return redirect('pegawai/pinjaman-pegawai');
+    Pinjaman::whereid_pinjaman($id)->update($data);
+    return redirect('pegawai/pengajuan-pinjaman');
 
     }
 
@@ -122,11 +98,11 @@ class Pegawai_PinjamanController extends Controller
     public function destroy($id)
     {
         try{
-            $datas = User::findOrfail($id);
+            $datas = Pinjaman::findOrfail($id);
             $datas->delete();
-            return redirect('pegawai/pinjaman-pegawai')->with('success','pegawai Berhasil Dihapus');
+            return redirect('pegawai/pengajuan-pinjaman')->with('success','Pengajuan Pinjaman Berhasil Dihapus');
         }catch(\Throwable $th){
-            return redirect('pegawai/pinjaman-pegawai')->withErrors('Data gagal dihapus. Harap hapus data yang terkait');
+            return redirect('pegawai/pengajuan-pinjaman')->withErrors('Data gagal dihapus. Harap hapus data yang terkait');
         }
     }
 }
