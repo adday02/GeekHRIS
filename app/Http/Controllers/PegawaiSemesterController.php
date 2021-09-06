@@ -27,7 +27,7 @@ class PegawaiSemesterController extends Controller
     public function pegawai($id,$sm)
     {
         $performance= Performance::where('tahun',$id)->where('semester',$sm)->first();
-        $pegawais= User::where('status','Pegawai')->where('username','!=',auth()->user()->username)->get();
+        $pegawais= User::where('status','Pegawai')->where('divisi',auth()->user()->divisi)->where('username','!=',auth()->user()->username)->get();
         $kemampuan= Kemampuan::All();
         return view('Pegawai.penilaian',compact('performance','pegawais','kemampuan'))->with('i');    
     }
@@ -105,20 +105,27 @@ class PegawaiSemesterController extends Controller
             return redirect('pegawai/cekPenilaian-pegawai')->with('gagal','Penilaian sedang dalam proses');
         }else{
         $pegawai= User::find($us);
-        $kemampuanAdm= Kemampuan::where('id_performance',$performance->id_performance)->where('dinilai',$us)->first();
-        $disiplinAdm= Disiplin::where('id_performance',$performance->id_performance)->where('dinilai',$us)->first();
-        $etikaAdm= Etika::where('id_performance',$performance->id_performance)->where('dinilai',$us)->first();
-        $kerjaAdm= Kerjasama::where('id_performance',$performance->id_performance)->where('dinilai',$us)->first();
-        $tanggungAdm= TanggungJawab::where('id_performance',$performance->id_performance)->where('dinilai',$us)->first();
-        return view('pegawai.cekNilai',compact('pegawai','kemampuanAdm','etikaAdm','disiplinAdm','kerjaAdm','tanggungAdm'))->with('i');    
-        }
-        //     $kemampuanAdm= Kemampuan::where('id_performance',$performance->id_performance)->where('dinilai',$us)->where('penilain',auth()->user()->username)->first();
-        //     $disiplinAdm= Disiplin::where('id_performance',$performance->id_performance)->where('dinilai',$us)->where('penilain',auth()->user()->username)->first();
-        //     $etikaAdm= Etika::where('id_performance',$performance->id_performance)->where('dinilai',$us)->where('penilain',auth()->user()->username)->first();
-        //     $kerjaAdm= Kerjasama::where('id_performance',$performance->id_performance)->where('dinilai',$us)->where('penilain',auth()->user()->username)->first();
-        //     $tanggungAdm= TanggungJawab::where('id_performance',$performance->id_performance)->where('dinilai',$us)->where('penilain',auth()->user()->username)->first();
-        //     return view('pegawai.ceknilai',compact('pegawai','kemampuanAdm','etikaAdm','disiplinAdm','kerjaAdm','tanggungAdm'))->with('i');    
+        $kemampuanAdm= Kemampuan::where('id_performance',$performance->id_performance)->where('dinilai',$us)->where('status','Admin')->first();
+        $disiplinAdm= Disiplin::where('id_performance',$performance->id_performance)->where('dinilai',$us)->where('status','Admin')->first();
+        $etikaAdm= Etika::where('id_performance',$performance->id_performance)->where('dinilai',$us)->where('status','Admin')->first();
+        $kerjaAdm= Kerjasama::where('id_performance',$performance->id_performance)->where('dinilai',$us)->where('status','Admin')->first();
+        $tanggungAdm= TanggungJawab::where('id_performance',$performance->id_performance)->where('dinilai',$us)->where('status','Admin')->first();
+        
+        $kemampuanPgw= Kemampuan::where('id_performance',$performance->id_performance)->where('dinilai',$us)->where('status','Pegawai')->first();
+        $disiplinPgw= Disiplin::where('id_performance',$performance->id_performance)->where('dinilai',$us)->where('status','Pegawai')->first();
+        $etikaPgw= Etika::where('id_performance',$performance->id_performance)->where('dinilai',$us)->where('status','Pegawai')->first();
+        $kerjaPgw= Kerjasama::where('id_performance',$performance->id_performance)->where('dinilai',$us)->where('status','Pegawai')->first();
+        $tanggungPgw= TanggungJawab::where('id_performance',$performance->id_performance)->where('dinilai',$us)->where('status','Pegawai')->first();
+        
+        $kemampuanAts= Kemampuan::where('id_performance',$performance->id_performance)->where('dinilai',$us)->where('status','Atasan')->first();
+        $disiplinAts= Disiplin::where('id_performance',$performance->id_performance)->where('dinilai',$us)->where('status','Atasan')->first();
+        $etikaAts= Etika::where('id_performance',$performance->id_performance)->where('dinilai',$us)->where('status','Atasan')->first();
+        $kerjaAts= Kerjasama::where('id_performance',$performance->id_performance)->where('dinilai',$us)->where('status','Atasan')->first();
+        $tanggungAts= TanggungJawab::where('id_performance',$performance->id_performance)->where('dinilai',$us)->where('status','Atasan')->first();
 
+        
+        return view('pegawai.cekNilai',compact('pegawai','kemampuanAdm','etikaAdm','disiplinAdm','kerjaAdm','tanggungAdm','kemampuanPgw','etikaPgw','disiplinPgw','kerjaPgw','tanggungPgw','kemampuanAts','etikaAts','disiplinAts','kerjaAts','tanggungAts'))->with('i');    
+        }
     }
     public function pilihsemester()
     {

@@ -9,7 +9,7 @@ class Kemampuan extends Model
 {
     protected $table='kemampuans';
     protected $primaryKey = 'id_kemampuan';
-    protected $fillable = [ 'id_kemampuan', 'id_performance','penilain','dinilai', 'komunikatif','tugas','tekanan','kemampuan_kerjaan','bahasa','kreatif'];
+    protected $fillable = [ 'id_kemampuan', 'id_performance','penilain','dinilai', 'komunikatif','tugas','tekanan','kemampuan_kerjaan','bahasa','kreatif','status'];
     public $timestamps = false;
     protected $keyType = 'integer';
     

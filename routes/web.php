@@ -58,10 +58,8 @@ Route::group(['prefix'=> 'admin'], function()
     Route::get('penilaian/tahun={id}&&semester={sm}',[AdminSemesterController::class,'pegawai']);
     Route::get('penilaian/tahun={id}&&semester={sm}/{us}',[AdminSemesterController::class,'nilai']);
     Route::get('penilaian/tahun={id}&&semester={sm}/ceknilai/{us}',[AdminSemesterController::class,'cekNilai']);
-<<<<<<< HEAD
     Route::resource('penilaian',AdminSemesterController::class);
     Route::post('inputPenilaian',[AdminSemesterController::class,'tambah'])->name('inputPenilaian');
-
 
     Route::resource('lowongan',Admin_LowonganController::class);
     Route::resource('lamaran',Admin_lamaranController::class);
@@ -69,14 +67,6 @@ Route::group(['prefix'=> 'admin'], function()
 
 Route::group(['prefix'=> 'pegawai', 'middleware'=> 'auth:pegawai'], function()
 {   
-=======
-    Route::post('inputPenilaian',[AdminSemesterController::class,'tambah'])->name('inputPenilaian');
-    
-});
-
-Route::group(['prefix'=> 'pegawai'], function()
-{
->>>>>>> 332de6db6c67b06548288bef6db1ff1e434e9590
     Route::resource('profile-pegawai',Pegawai_ProfileController::class);
     Route::resource('pinjaman-pegawai',Pegawai_PinjamanController::class);
     Route::resource('cuti-pegawai',Pegawai_penCutiController::class);

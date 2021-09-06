@@ -9,7 +9,7 @@ class Etika extends Model
 {
     protected $table='etikas';
     protected $primaryKey = 'id_etika';
-    protected $fillable = [ 'id_etika', 'id_performance','penilain','dinilai','sikap_tuturkata','jujur_tanggungjawab','pakaian_rapi'];
+    protected $fillable = [ 'id_etika', 'id_performance','penilain','dinilai','sikap_tuturkata','jujur_tanggungjawab','pakaian_rapi','status'];
     public $timestamps = false;
     protected $keyType = 'integer';
     

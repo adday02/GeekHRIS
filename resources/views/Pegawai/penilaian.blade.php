@@ -24,7 +24,9 @@
                         </a>
                     </li>
                     <li>
+                    <a href="tahun={{$performance->tahun}}&&semester={{$performance->semester}}/{{$pegawai->username}}">
                         <img src="{{URL::to('/')}}/foto/{{$pegawai->foto}}" alt="..." class="img-circle profile_img">
+                    </a>
                     </li>
                     <li>
                         <a href="tahun={{$performance->tahun}}&&semester={{$performance->semester}}/{{$pegawai->username}}">

@@ -1,5 +1,5 @@
 @extends('pegawai.template')
-@section('title','Penilain' )
+@section('title','Pilih Semester' )
 @section('content')
     <!-- page content -->
     <div class="right_col" role="main">

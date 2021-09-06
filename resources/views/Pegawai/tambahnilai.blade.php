@@ -1,4 +1,4 @@
-@extends('admin.template')
+@extends('pegawai.template')
 @section('title','Tambah Penilaian' )
 @section('content')
 
