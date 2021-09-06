@@ -6,6 +6,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">
 
     <title>@yield('title')</title>
 
@@ -43,10 +45,11 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
+                <img src="../../../../Admin/Build/images/img.jpg" alt="../../..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>{{auth()->user()->nama}}</h2>
+                <h2>Admin</h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -56,45 +59,66 @@
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
-                  <h3>General</h3>
-                  <ul class="nav side-menu">
-                      <li><a><i class="fa fa-users"></i> Pengajuan <span
-                                  class="fa fa-chevron-down"></span></a>
-                          <ul class="nav child_menu">
-                              <li><a href="{{URL('admin/pegawai')}}">Pinjaman</a></li>
-                              <li><a href="{{URL('admin/recruitment')}}">Cuti</a></li>
-                          </ul>
-                      </li>
-                      <li><a><i class="fa fa-bar-chart"></i> Penilaian <span class="fa fa-chevron-down"></span></a>
-                          <ul class="nav child_menu">
-                              <li><a href="{{URL('pegawai/penilaian-pegawai')}}">Beri Penilaian</a></li>
-                              <li><a href="{{URL('pegawai/cekPenilaian-pegawai')}}">Cek Nilai</a></li>
-                          </ul>
-                      </li>
-                      <li><a><i class="fa fa-laptop"></i> Project <span class="fa fa-chevron-down"></span></a>
-                          <ul class="nav child_menu">
-                              <li><a href="{{URL('pegawai/project-list-pegawai')}}">List Project</a></li>
-                          </ul>
-                      </li>
-                      <li><a><i class="fa fa-money"></i> Gaji <span class="fa fa-chevron-down"></span></a>
-                          <ul class="nav child_menu">
-                              <li><a href="#">Gaji Pokok</a></li>
-                              <li><a href="#">Gaji Tunjangan</a></li>
-                              <li><a href="#">Gaji Lembur</a></li>
-                              <li><a href="#">Total Gaji</a></li>
-                          </ul>
-                      </li>
-                      <li><a><i class="fa fa-book"></i> Absensi <span class="fa fa-chevron-down"></span></a>
-                          <ul class="nav child_menu">
-                              <li><a href="#">Absensi Pegawai</a></li>
-                              <li><a href="#">Rekap Absensi Sakit</a></li>
-                              <li><a href="#">Rekap Absensi Izin</a></li>
-                              <li><a href="#">Rekap Absensi Tanpa Kabar</a></li>
-                          </ul>
-                      </li>
+                <h3>General</h3>
+                <ul class="nav side-menu">
+                  <li><a href="{{URL('admin/dashboard')}}"><i class="fa fa-tachometer "></i> Dashboard </a></li>
+                  <li><a><i class="fa fa-users"></i> User <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{URL('admin/pegawai')}}">Pegawai</a></li>
+                      <li><a href="{{URL('admin/recruitment')}}">Rekruitment</a></li>
+                      <li><a href="{{URL('admin/magang')}}">Magang</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-bar-chart"></i> Penilaian <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{URL('admin/penilaian')}}">Penilaian Pegawai</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-laptop"></i> Project <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{URL('admin/project-list')}}">All Project</a></li>
+                      <li><a href="{{URL('admin/project-progres')}}">Progress Project</a></li>
+                      <li><a href="{{URL('admin/project-selesai')}}">Done Project</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-money"></i> Gaji <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{URL('admin/gajipokok')}}">Gaji Pokok</a></li>
+                      <li><a href="{{URL('admin/tunjangan')}}">Gaji Tunjangan</a></li>
+                      <li><a href="{{URL('admin/totalgaji')}}">Total Gaji</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-book"></i> Absensi <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="#">Absensi Pegawai</a></li>
+                      <li><a href="#">Rekap Absensi Sakit</a></li>
+                      <li><a href="#">Rekap Absensi Izin</a></li>
+                      <li><a href="#">Rekap Absensi Tanpa Kabar</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-clock-o"></i> Pengajuan <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{URL('admin/cuti')}}">Pengajuan Cuti</a></li>
+                      <li><a href="{{URL('admin/pinjaman')}}">Pengajuan Pinjaman</a></li>
+                    </ul>
+                  </li>
+
+                  <li><a><i class="fa fa-desktop"></i> Pekerjaan <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{URL('admin/lowongan')}}">Lowongan Pekerjaan</a></li>
+                      <li><a href="{{URL('admin/lamaran')}}">Lamaran Pekerjaan</a></li>
+                    </ul>
+                  </li>
+                     
+                    </ul>
+                  </li>
+
                   </ul>
               </div>
-          </div><!-- /sidebar menu -->
+
+
+            </div>
+            <!-- /sidebar menu -->
 
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
@@ -107,7 +131,7 @@
               <a data-toggle="tooltip" data-placement="top" title="Lock">
                 <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout" href="{{URL('keluar')}}">
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="{{URL('/keluar')}}">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div>
@@ -126,11 +150,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-<<<<<<< HEAD
-                    <img src="../Admin/Build/images/img.jpg" alt="">Admin
-=======
-                    <img src="{{URL::to('/')}}/foto/{{auth()->user()->foto}}" alt="">{{auth()->user()->nama}}
->>>>>>> 3b003466ab44fb15bd57c1147196fbfcf1bcd52c
+                    <img src="../../../../Admin/Build/images/img.jpg" alt="">Admin
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -142,9 +162,10 @@
                       </a>
                     </li>
                     <li><a href="javascript:;">Help</a></li>
-                    <li><a href="{{URL('/keluar')}}"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    <li><a href="{{URL('keluar')}}"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
+
                 <li role="presentation" class="dropdown">
                   <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-envelope-o"></i>
@@ -214,7 +235,9 @@
           </div>
         </div>
         <!-- /top navigation -->
+
         @yield('content')
+
         <!-- footer content -->
         <footer>
           <div class="pull-right">
@@ -266,6 +289,28 @@
     <script src="../../../../Admin/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="../../../../Admin/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     <script src="../../../../Admin/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="{{asset('js/dataTables.buttons.min.js')}}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
+
+    <script type="text/javascript">
+            
+            $(document).ready(function () {
+                $('#table-datatables').DataTable({
+                    dom: 'Bfrtip',
+                    buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+                });
+            });
+        </script>
+
     <!-- Custom Theme Scripts -->
     <script src="../../../../Admin/build/js/custom.min.js"></script>
     <script type="text/javascript">
