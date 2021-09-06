@@ -66,24 +66,14 @@ return [
             'provider' => 'pegawai',
             'hash' => false,
         ],
-        'recruitment' => [
+        'atasan' => [
             'driver' => 'session',
-            'provider' => 'recruitment',
+            'provider' => 'atasan',
         ],
 
-        'apirecruitment' => [
+        'apiatasan' => [
             'driver' => 'token',
-            'provider' => 'recruitment',
-            'hash' => false,
-        ],
-        'magang' => [
-            'driver' => 'session',
-            'provider' => 'magang',
-        ],
-
-        'apimagang' => [
-            'driver' => 'token',
-            'provider' => 'magang',
+            'provider' => 'atasan',
             'hash' => false,
         ],
     ],
@@ -117,15 +107,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\Login::class,
         ],
-        'recruitment' => [
+        'atasan' => [
             'driver' => 'eloquent',
             'model' => App\Models\Login::class,
         ],
-        'magang' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\Login::class,
-        ],
-
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

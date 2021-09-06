@@ -10,23 +10,23 @@
     <title>@yield('title')</title>
 
     <!-- Bootstrap -->
-    <link href="../Admin/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../../Admin/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="../Admin/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../../../../Admin/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
-    <link href="../Admin/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="../../../../Admin/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
-    <link href="../Admin/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <link href="../../../../Admin/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
 	
     <!-- bootstrap-progressbar -->
-    <link href="../Admin/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <link href="../../../../Admin/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
     <!-- JQVMap -->
-    <link href="../Admin/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+    <link href="../../../../Admin/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
     <!-- bootstrap-daterangepicker -->
-    <link href="../Admin/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <link href="../../../../Admin/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
-    <link href="../Admin/build/css/custom.min.css" rel="stylesheet">
+    <link href="../../../../Admin/build/css/custom.min.css" rel="stylesheet">
   </head>
 
   <body class="nav-md">
@@ -41,16 +41,28 @@
             <div class="clearfix"></div>
 
             <div class="profile clearfix">
+<<<<<<< HEAD
                         <div class="profile_info">
                             <span>Welcome,</span>
                             <h2>{{auth()->user()->nama}}</h2>
                         </div>
                     </div>
+=======
+              <div class="profile_pic">
+              </div>
+              <div class="profile_info">
+                <span>Welcome,</span>
+                <h2>{{auth()->user()->nama}}</h2>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+>>>>>>> de32e4a883ad17c24cbdbcecfaf6bf0e5003966d
 
             <br />
 
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+<<<<<<< HEAD
                         <div class="menu_section">
                             <h3>General</h3>
                             <ul class="nav side-menu">
@@ -93,6 +105,48 @@
                         </div>
                     </div>
                     <!-- /sidebar menu -->
+=======
+              <div class="menu_section">
+                  <h3>General</h3>
+                  <ul class="nav side-menu">
+                      <li><a><i class="fa fa-users"></i> Pengajuan <span
+                                  class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu">
+                              <li><a href="{{URL('admin/pegawai')}}">Pinjaman</a></li>
+                              <li><a href="{{URL('admin/recruitment')}}">Cuti</a></li>
+                          </ul>
+                      </li>
+                      <li><a><i class="fa fa-bar-chart"></i> Penilaian <span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu">
+                              <li><a href="{{URL('pegawai/penilaian-pegawai')}}">Beri Penilaian</a></li>
+                              <li><a href="{{URL('pegawai/cekPenilaian-pegawai')}}">Cek Nilai</a></li>
+                          </ul>
+                      </li>
+                      <li><a><i class="fa fa-laptop"></i> Project <span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu">
+                              <li><a href="{{URL('pegawai/project-list-pegawai')}}">List Project</a></li>
+                          </ul>
+                      </li>
+                      <li><a><i class="fa fa-money"></i> Gaji <span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu">
+                              <li><a href="#">Gaji Pokok</a></li>
+                              <li><a href="#">Gaji Tunjangan</a></li>
+                              <li><a href="#">Gaji Lembur</a></li>
+                              <li><a href="#">Total Gaji</a></li>
+                          </ul>
+                      </li>
+                      <li><a><i class="fa fa-book"></i> Absensi <span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu">
+                              <li><a href="#">Absensi Pegawai</a></li>
+                              <li><a href="#">Rekap Absensi Sakit</a></li>
+                              <li><a href="#">Rekap Absensi Izin</a></li>
+                              <li><a href="#">Rekap Absensi Tanpa Kabar</a></li>
+                          </ul>
+                      </li>
+                  </ul>
+              </div>
+          </div><!-- /sidebar menu -->
+>>>>>>> de32e4a883ad17c24cbdbcecfaf6bf0e5003966d
 
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
@@ -124,7 +178,11 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+<<<<<<< HEAD
                     <img src="../Admin/Build/images/img.jpg" alt="">Ariana
+=======
+                    <img src="{{URL::to('/')}}/foto/{{auth()->user()->foto}}" alt="">{{auth()->user()->nama}}
+>>>>>>> de32e4a883ad17c24cbdbcecfaf6bf0e5003966d
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -220,50 +278,48 @@
       </div>
     </div>
     <!-- jQuery -->
-    <script src="../Admin/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="../../../../Admin/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
-    <script src="../Admin/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../../../../Admin/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- FastClick -->
-    <script src="../Admin/vendors/fastclick/lib/fastclick.js"></script>
+    <script src="../../../../Admin/vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
-    <script src="../Admin/vendors/nprogress/nprogress.js"></script>
+    <script src="../../../../Admin/vendors/nprogress/nprogress.js"></script>
     <!-- Chart.js -->
-    <script src="../Admin/vendors/Chart.js/dist/Chart.min.js"></script>
+    <script src="../../../../Admin/vendors/Chart.js/dist/Chart.min.js"></script>
     <!-- gauge.js -->
-    <script src="../Admin/vendors/gauge.js/dist/gauge.min.js"></script>
+    <script src="../../../../Admin/vendors/gauge.js/dist/gauge.min.js"></script>
     <!-- bootstrap-progressbar -->
-    <script src="../Admin/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="../../../../Admin/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
     <!-- iCheck -->
-    <script src="../Admin/vendors/iCheck/icheck.min.js"></script>
+    <script src="../../../../Admin/vendors/iCheck/icheck.min.js"></script>
     <!-- Skycons -->
-    <script src="../Admin/vendors/skycons/skycons.js"></script>
+    <script src="../../../../Admin/vendors/skycons/skycons.js"></script>
     <!-- Flot -->
-    <script src="../Admin/vendors/Flot/jquery.flot.js"></script>
-    <script src="../Admin/vendors/Flot/jquery.flot.pie.js"></script>
-    <script src="../Admin/vendors/Flot/jquery.flot.time.js"></script>
-    <script src="../Admin/vendors/Flot/jquery.flot.stack.js"></script>
-    <script src="../Admin/vendors/Flot/jquery.flot.resize.js"></script>
+    <script src="../../../../Admin/vendors/Flot/jquery.flot.js"></script>
+    <script src="../../../../Admin/vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="../../../../Admin/vendors/Flot/jquery.flot.time.js"></script>
+    <script src="../../../../Admin/vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="../../../../Admin/vendors/Flot/jquery.flot.resize.js"></script>
     <!-- Flot plugins -->
-    <script src="../Admin/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-    <script src="../Admin/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-    <script src="../Admin/vendors/flot.curvedlines/curvedLines.js"></script>
+    <script src="../../../../Admin/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="../../../../Admin/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="../../../../Admin/vendors/flot.curvedlines/curvedLines.js"></script>
     <!-- DateJS -->
-    <script src="../Admin/vendors/DateJS/build/date.js"></script>
+    <script src="../../../../Admin/vendors/DateJS/build/date.js"></script>
     <!-- JQVMap -->
-    <script src="../Admin/vendors/jqvmap/dist/jquery.vmap.js"></script>
-    <script src="../Admin/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="../Admin/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <script src="../../../../Admin/vendors/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="../../../../Admin/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="../../../../Admin/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
     <!-- bootstrap-daterangepicker -->
-    <script src="../Admin/vendors/moment/min/moment.min.js"></script>
-    <script src="../Admin/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="../../../../Admin/vendors/moment/min/moment.min.js"></script>
+    <script src="../../../../Admin/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
     <!-- Table -->
-    <script src="../Admin/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="../Admin/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-    <script src="../Admin/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-
-
+    <script src="../../../../Admin/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../../../../Admin/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="../../../../Admin/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
     <!-- Custom Theme Scripts -->
-    <script src="../Admin/build/js/custom.min.js"></script>
+    <script src="../../../../Admin/build/js/custom.min.js"></script>
     <script type="text/javascript">
       // Bar chart
       new Chart(document.getElementById("bar-chart"), {

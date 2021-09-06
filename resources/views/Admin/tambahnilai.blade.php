@@ -410,7 +410,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                <label class="control-label col-md-6 col-sm-12 col-xs-12">Kebersihan dan kenyamanan lingkungan kerja {{auth()->user()->username}}</label>
+                <label class="control-label col-md-6 col-sm-12 col-xs-12">Kebersihan dan kenyamanan lingkungan kerja</label>
                     <div class="col-md-6 col-sm-3 col-xs-3">
                     <select id="heard" class="form-control" name="kebersihan" required>
                         <option value="">Nilai</option>

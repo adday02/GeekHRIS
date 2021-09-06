@@ -131,8 +131,4 @@ class AdminSemesterController extends Controller
         TanggungJawab::create($data_tanggung_jawab);
         return redirect('admin/penilaian/tahun=2021&&semester=08')->with('success','Penilaian berhasil disimpan');
     }
-    public function destroy($id)
-    {
-        //
-    }
 }

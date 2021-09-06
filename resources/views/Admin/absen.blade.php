@@ -21,11 +21,12 @@
                 <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                <table id="datatable" class="table table-striped table-bordered">
+                <table id="table-datatables" class="table table-striped table-bordered">
                     <thead>
                     <tr>
                         <th>No</th>
                         <th>Nama</th> 
+                        <th>Tanggal</th> 
                         <th>Keterangan</th>
                         <th width="22.5%">Aksi</th>
                     </tr>
@@ -35,6 +36,7 @@
                     <tr>
                         <td>{{++$i}}</td>
                         <td>{{$absen->user->nama}}</td>
+                        <td>{{$absen->tanggal}}</td>
                         <td>{{$absen->status}}</td>
                         <td>
                         <button type="danger" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#edit{{$absen->id_absen}}" ><i class="fa fa-pencil"></i> Ubah</button>
@@ -77,10 +79,14 @@
                         <div class="col-md-9 col-sm-9 col-xs-12">
                         <select class="form-control" name="status[]" >
                             <option disabled="" selected="" value="">Pilih Keterangan</option>
-                            <option>Hadir</option>
-                            <option>Izin</option>
-                            <option>Sakit</option>
-                            <option>Tanpa Kehadiaran</option>
+                            <option value="Masuk">Masuk</option>
+                            <option value="Izin">Izin</option>
+                            <option value="Sakit">Sakit</option>
+                            <option value="Tanpa Keterangan">Tanpa Keterangan</option>
+                            <option value="Datang Lambat / Lupa Catat">Datang Lambat / Lupa Catat</option>
+                            <option value="Masuk Setengah Hari">Masuk Setengah Hari</option>
+                            <option value="Surat Teguran<">Surat Teguran</option>
+                            <option value="Surat Peringatan">Surat Peringatan</option>
                         </select>
                         </div>
                     </div>

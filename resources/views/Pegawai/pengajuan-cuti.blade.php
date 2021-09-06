@@ -1,5 +1,9 @@
 @extends('Pegawai.template')
+<<<<<<< HEAD:resources/views/Pegawai/pengajuan-cuti.blade.php
 @section('title','Pengajuan Cuti' )
+=======
+@section('title','Pegawai - Pengajuan Cuti' )
+>>>>>>> de32e4a883ad17c24cbdbcecfaf6bf0e5003966d:resources/views/Pegawai/pengajuancuti.blade.php
 @section('content')
 
         <!-- page content -->

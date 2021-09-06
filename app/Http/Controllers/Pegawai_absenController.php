@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Kemampuan;
+use App\Models\Absen;
 use App\Models\User;
 
-class AdminPenilaianController extends Controller
+class Pegawai_absenController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,9 @@ class AdminPenilaianController extends Controller
      */
     public function index()
     {
-
+        $users = User::where('username','{{auth()->user()->username}}')->get();
+        $absens = Absen::all();
+        return view('pegawai/absen',compact('users','absens'))->with('i');
     }
 
     /**
@@ -47,7 +49,7 @@ class AdminPenilaianController extends Controller
      */
     public function show($id)
     {
-   
+        //
     }
 
     /**
@@ -70,7 +72,14 @@ class AdminPenilaianController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = array(
+         
+            'status'=>$request->status,
+            'tanggal'=>date('y-m-d'),
+            
+        );
+        Absen::whereid_absen($id)->update($data);
+        return redirect('pegawai\absen');
     }
 
     /**

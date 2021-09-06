@@ -23,10 +23,8 @@ class RedirectIfAuthenticated
             return redirect('/admin/dashboard');
         }else if (Auth::guard('pegawai')->check()) {
             return redirect('/pegawai/profile-pegawai');
-        }else if (Auth::guard('recruitment')->check()) {
-            return redirect('#');
-        }else if (Auth::guard('magang')->check()) {
-            return redirect('#');
+        }else if (Auth::guard('atasan')->check()) {
+            return redirect('/atasan/dashboard');
         }
         else{
             redirect('/masuk');
