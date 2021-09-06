@@ -565,62 +565,6 @@
 
     <!-- Custom Theme Scripts -->
     <script src="../Admin/build/js/custom.min.js"></script>
-    <script type="text/javascript">
-      // Bar chart
-      new Chart(document.getElementById("bar-chart"), {
-          type: 'bar',
-          data: {
-            labels: [
-              "Pegawai", "Rekruitment","Magang"
-            ],
-            datasets: [
-              {
-                label: "Jumlah",
-                backgroundColor: [
-                  "#343f51","#808080","#343f51","#808080","#343f51"
-                ],
-                data: [
-                  {{$user_pegawai}},
-                  {{$user_recruitment}},
-                  {{$user_magang}},
-                  0,
-                ]
-              }
-            ]
-          },
-          options: {
-            legend: { display: false },
-            title: {
-              display: true,
-              text: 'Jumlah User Geek Garden Software House'
-            }
-          }
-      });
-    </script>
-    <script>
- 
- var ctx = document.getElementById("inicanvas").getContext("2d");
- // tampilan chart
- var piechart = new Chart(ctx,{type: 'pie',
-   data : {
- // label nama setiap Value
- labels:[
-           'Sudah Terima Gaji',
-           'Belum Terima Gaji'
-   ],
- datasets: [{
-   // Jumlah Value yang ditampilkan
-    data:[60,60],
-
-   backgroundColor:[
-     'rgba(128, 128, 128)',
-     'rgba(77,77,77)',
-    ]
- }],
- }
- });
-
-</script>
 
     </body>
 </html>
